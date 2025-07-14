@@ -15,7 +15,9 @@ const Team = () => {
     });
   };
 
-
+  const [power, setPower] = useState([]);
+const [powerLeg, setPowerLeg] = useState('');
+const [vickerLeg, setVickerLeg] = useState('');
   const [incomes, setIncomes] = useState([]);
   const [income, setIncome] = useState([]);
   const [error, setError] = useState("");
@@ -37,6 +39,24 @@ const Team = () => {
     }
   };
 
+
+const fetchPower = async () => {
+  try {
+    const response = await Api.get('/powerteam');
+    if (response.data?.success) {
+      const user = response.data.data;
+      setPowerLeg(user.power_leg);
+      setVickerLeg(user.vicker_leg);
+    }
+  } catch (err) {
+    setError(err.response?.data?.message || "Error fetching power data");
+  }
+};
+
+
+useEffect(() => {
+  fetchPower();
+}, []);
 
    const IncomeInfo = async () => {
           try {
@@ -137,42 +157,48 @@ const Team = () => {
   };
 
   // team 
-  const m1 =income?.data?.gen_team1total || 0;
-  const m2 = income?.data?.gen_team2total || 0;
-  const m3 = income?.data?.gen_team3total || 0;
-  const total = m1 + m2 + m3 || 0; // prevent division by zero
+const m1 = income?.data?.gen_team1total || 0;
+const m2 = income?.data?.gen_team2total || 0;
+const m3 = income?.data?.gen_team3total || 0;
+const m4 = income?.data?.gen_team4total || 0;
+const m5 = income?.data?.gen_team5total || 0;
 
-  const getArc = (start, percent) => {
-    const radius = 60;
-    const angle = (2 * Math.PI * percent) - 0.001;
-    const endX = radius + radius * Math.sin(start + angle);
-    const endY = radius - radius * Math.cos(start + angle);
-    const largeArc = percent > 0.5 ? 1 : 0;
+const total = m1 + m2 + m3 + m4 + m5 || 0; // prevent division by zero
 
-    const startX = radius + radius * Math.sin(start);
-    const startY = radius - radius * Math.cos(start);
+const getArc = (start, percent) => {
+  const radius = 60;
+  const angle = (2 * Math.PI * percent) - 0.001;
+  const endX = radius + radius * Math.sin(start + angle);
+  const endY = radius - radius * Math.cos(start + angle);
+  const largeArc = percent > 0.5 ? 1 : 0;
 
-    return `
-      M ${startX} ${startY}
-      A ${radius} ${radius} 0 ${largeArc} 1 ${endX} ${endY}
-      L ${radius} ${radius}
-      Z
-    `;
-  };
+  const startX = radius + radius * Math.sin(start);
+  const startY = radius - radius * Math.cos(start);
 
- const angles = [
+  return `
+    M ${startX} ${startY}
+    A ${radius} ${radius} 0 ${largeArc} 1 ${endX} ${endY}
+    L ${radius} ${radius}
+    Z
+  `;
+};
+
+const angles = [
   { value: m1, color: 'blue', label: `LVL1 (${income?.data?.active_gen_team1total}/${income?.data?.gen_team1total})` },
   { value: m2, color: 'green', label: `LVL2 (${income?.data?.active_gen_team2total}/${income?.data?.gen_team2total})` },
   { value: m3, color: 'orange', label: `LVL3 (${income?.data?.active_gen_team3total}/${income?.data?.gen_team3total})` },
+  { value: m4, color: 'purple', label: `LVL4 (${income?.data?.active_gen_team4total}/${income?.data?.gen_team4total})` },
+  { value: m5, color: 'red', label: `LVL5 (${income?.data?.active_gen_team5total}/${income?.data?.gen_team5total})` },
 ];
 
 let currentAngle = 0;
-const slices = angles.map((item, i) => {
-  const percent = item.value / total;
+const slices = angles.map((item) => {
+  const percent = total === 0 ? 0 : item.value / total;
   const path = getArc(currentAngle, percent);
   currentAngle += 2 * Math.PI * percent;
   return { path, color: item.color, label: item.label };
 });
+
 
 
   const containerStyle = {
@@ -252,14 +278,14 @@ const slices = angles.map((item, i) => {
   };
 
   const inviteCard = {
-    background: 'linear-gradient(135deg, rgb(25, 32, 32), rgb(27, 27, 30))', border: "1px solid rgb(83, 78, 78)",
-    borderRadius: '12px',
-    padding: '16px',
+    // background: 'linear-gradient(135deg, rgb(25, 32, 32), rgb(27, 27, 30))', border: "1px solid rgb(83, 78, 78)",
+    // borderRadius: '12px',
+    // padding: '16px',
     marginTop: '24px',
     display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    border: '1px solid #726e6e'
+    // justifyContent: 'space-between',
+    // alignItems: 'center',
+    // border: '1px solid #726e6e'
   };
 
   const inviteText = {
@@ -294,30 +320,44 @@ const slices = angles.map((item, i) => {
   };
 
 
-  const [activeTab, setActiveTab] = useState('Lvl1');
+const [activeTab, setActiveTab] = useState('Layer1');
 const [hoveredIndex, setHoveredIndex] = useState(null);
-  const tabs = ['Lvl1', 'Lvl2', 'Lvl3'];
 
-  const tabData = {
-    Lvl1: {
-      members:`${income?.data?.active_gen_team1total || 0}/${income?.data?.gen_team1total || 0}`,
-      teamDeposit: `$${income?.data?.gen_team1Recharge || 0}`,
-      teamWithdraw: `$${income?.data?.gen_team1Withdraw || 0}`,
-      teamIncome: `$${income?.data?.gen_team1Earning || 0}`,
-    },
-    Lvl2: {
-      members:`${income?.data?.active_gen_team2total || 0}/${income?.data?.gen_team2total || 0}`,
-      teamDeposit: `$${income?.data?.gen_team2Recharge || 0}`,
-      teamWithdraw: `$${income?.data?.gen_team2Withdraw || 0}`,
-      teamIncome: `$${income?.data?.gen_team2Earning || 0}`,
-    },
-    Lvl3: {
-      members:`${income?.data?.active_gen_team3total || 0}/${income?.data?.gen_team3total || 0}`,
-      teamDeposit: `$${income?.data?.gen_team3Recharge || 0}`,
-      teamWithdraw: `$${income?.data?.gen_team3Withdraw || 0}`,
-      teamIncome: `$${income?.data?.gen_team3Earning || 0}`,
-    },
-  };
+const tabs = ['Layer1', 'Layer2', 'Layer3', 'Layer4', 'Layer5'];
+
+const tabData = {
+  Layer1: {
+    members: `${income?.data?.active_gen_team1total || 0}/${income?.data?.gen_team1total || 0}`,
+    teamDeposit: `$${income?.data?.gen_team1Recharge || 0}`,
+    teamWithdraw: `$${income?.data?.gen_team1Withdraw || 0}`,
+    teamIncome: `$${income?.data?.gen_team1Earning || 0}`,
+  },
+  Layer2: {
+    members: `${income?.data?.active_gen_team2total || 0}/${income?.data?.gen_team2total || 0}`,
+    teamDeposit: `$${income?.data?.gen_team2Recharge || 0}`,
+    teamWithdraw: `$${income?.data?.gen_team2Withdraw || 0}`,
+    teamIncome: `$${income?.data?.gen_team2Earning || 0}`,
+  },
+  Layer3: {
+    members: `${income?.data?.active_gen_team3total || 0}/${income?.data?.gen_team3total || 0}`,
+    teamDeposit: `$${income?.data?.gen_team3Recharge || 0}`,
+    teamWithdraw: `$${income?.data?.gen_team3Withdraw || 0}`,
+    teamIncome: `$${income?.data?.gen_team3Earning || 0}`,
+  },
+  Layer4: {
+    members: `${income?.data?.active_gen_team4total || 0}/${income?.data?.gen_team4total || 0}`,
+    teamDeposit: `$${income?.data?.gen_team4Recharge || 0}`,
+    teamWithdraw: `$${income?.data?.gen_team4Withdraw || 0}`,
+    teamIncome: `$${income?.data?.gen_team4Earning || 0}`,
+  },
+  Layer5: {
+    members: `${income?.data?.active_gen_team5total || 0}/${income?.data?.gen_team5total || 0}`,
+    teamDeposit: `$${income?.data?.gen_team5Recharge || 0}`,
+    teamWithdraw: `$${income?.data?.gen_team5Withdraw || 0}`,
+    teamIncome: `$${income?.data?.gen_team5Earning || 0}`,
+  },
+};
+
 
   const containerStyle2 = {
     // backgroundColor: '#121212',
@@ -491,31 +531,39 @@ const [hoveredIndex, setHoveredIndex] = useState(null);
                     </div>
                   )}
 
-                    <div style={legendStyle}>
-                      <div>
-                        <span style={dotStyle('blue')}></span> LVL1 ({income?.data?.active_gen_team1total}/{income?.data?.gen_team1total})
-                      </div>
-                      <div>
-                        <span style={dotStyle('green')}></span> LVL2 ({income?.data?.active_gen_team2total}/{income?.data?.gen_team2total})
-                      </div>
-                      <div>
-                        <span style={dotStyle('orange')}></span> LVL3 ({income?.data?.active_gen_team3total}/{income?.data?.gen_team3total})
-                      </div>
-                    </div>
-                  </div>
+               <div style={legendStyle}>
+  <div>
+    <span style={dotStyle('blue')}></span> Layer 1 ({income?.data?.active_gen_team1total}/{income?.data?.gen_team1total})
+  </div>
+  <div>
+    <span style={dotStyle('green')}></span> Layer 2 ({income?.data?.active_gen_team2total}/{income?.data?.gen_team2total})
+  </div>
+  <div>
+    <span style={dotStyle('orange')}></span> Layer 3 ({income?.data?.active_gen_team3total}/{income?.data?.gen_team3total})
+  </div>
+  <div>
+    <span style={dotStyle('purple')}></span> Layer 4 ({income?.data?.active_gen_team4total}/{income?.data?.gen_team4total})
+  </div>
+  <div>
+    <span style={dotStyle('red')}></span> Layer 5 ({income?.data?.active_gen_team5total}/{income?.data?.gen_team5total})
+  </div>
+</div>
+</div>
+
 
                   {/* Invite card */}
                  <div style={inviteCard}>
-                      <div style={inviteText}>
-                        <div style={inviteTitle}>{t('Invite Friends')}</div>
-                        <div style={inviteSub}>{t('Invite Friends And Earn Coins Together')}</div>
-                        <div style={inviteLink} onClick={() => navigate('/Refer')}>{t('Go To Invite')} →</div>
-                      </div>
-                      <img
-                        src="/static/img/referr.png"
-                        alt="Invite"
-                        style={inviteImgStyle}
-                      />
+                      <div style={columnStyle}>
+                  <div><img data-v-3dcfa33c="" src="/static/img/teama.png" alt="" style={{width:'12px'}}/> {t('Power Team Member ')}</div>
+                  <div style={valueStyleTeam}>{powerLeg}</div>
+                 
+                </div>
+                   <div style={columnStyle}>
+                  <div><img data-v-3dcfa33c="" src="/static/img/teama.png" alt="" style={{width:'12px'}}/>  {t("Support Team Member")}</div>
+                  <div style={valueStyleTeam}>{vickerLeg}</div>
+                
+                </div>
+                      
                     </div>
                 </div>
 

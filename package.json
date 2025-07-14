@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@react-oauth/google": "^0.12.1",
+    "ajv": "^6.12.6",
+    "ajv-keywords": "^3.5.2",
     "assert": "^2.1.0",
     "axios": "^1.7.9",
     "browserify-zlib": "^0.2.0",

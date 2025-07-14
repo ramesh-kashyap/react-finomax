@@ -19,80 +19,123 @@ const Server = () => {
    const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
    const [slides, setSlides] = useState([
   {
-    title: t("VIP 1"),
-    heading: t("VIP 1 Upgrade Conditions"),
-    text: t("Amount that can be invested $: 30-500"),
+    title: t("Trainee"),
+    heading: t("Trainee Upgrade Conditions"),
+    text: t("Amount that can be invested $: 50-1000"),
     text1: t("Optional investment period (hours): 12"),
     text2: t("To: 24"),
     price: "vi1-CIyqDPCR",
     days: 7,
     purchased: false,
-    effectiveAmount: "30",
-    tradeAmount: "30",
-    maxtradeAmount: "500",
-    DailyTrade: "3",
+    effectiveAmount: "50",
+    tradeAmount: "50",
+    maxtradeAmount: "1000",
+    DailyTrade: "2",
     TeamA: "0",
     TeamBC: "0",
-    roi: "1.3% - 1.5%",
-    level: "8% / 2% / 1%",
+    roi: "0.9% - 1.10%",
+    level: "N/A",
     bgImg: "/static/img/bg_v1.5140c5ef.png"
   },
   {
-    title: t("VIP 2"),
-    heading: t("VIP 2 Upgrade Conditions"),
-    text: t("Amount that can be invested $: 100-300"),
+    title: t("Skilled"),
+    heading: t("Skilled Upgrade Conditions"),
+    text: t("Amount that can be invested $: 501-2500"),
     text1: t("Optional investment period (hours): 24"),
     text2: t("To: 48"),
     price: "vip2-by-2",
     days: 15,
     purchased: false,
-    effectiveAmount: "500",
-    tradeAmount: "500",
-    maxtradeAmount: "2000",
-    DailyTrade: "4",
+    effectiveAmount: "501",
+    tradeAmount: "501",
+    maxtradeAmount: "2500",
+    DailyTrade: "3",
     TeamA: "3",
     TeamBC: "6",
-    roi: "1.6% - 1.8%",
-    level: "10% / 3% / 2%",
+    roi: "1.9% - 2.10%",
+    level: "10% / 6% / 4% /2% /1%",
     bgImg: "/static/img/bg_v2.ecaae616.png"
   },
   {
-    title: t("VIP 3"),
-    heading: t("VIP 3 Upgrade Conditions"),
-    text: t("Amount that can be invested $: 500-2000"),
+    title: t("Advance"),
+    heading: t("Advance Upgrade Conditions"),
+    text: t("Amount that can be invested $: 2001-5000"),
     text1: t("Optional investment period (hours): 24"),
     text2: t("To: 48"),
     price: "vi2-CCAxt9OI",
     days: 15,
     purchased: false,
-    effectiveAmount: "2000",
-    tradeAmount: "2000",
+    effectiveAmount: "2001",
+    tradeAmount: "2001",
     maxtradeAmount: "5000",
-    DailyTrade: "5",
+    DailyTrade: "4",
     TeamA: "10",
-    TeamBC: "24",
-    roi: "2.0% - 2.4%",
-    level: "12% / 4% / 2%",
+    TeamBC: "25",
+    roi: "2.40% - 2.60%",
+    level: "10% / 6% / 4% /2% /1%",
     bgImg: "/static/img/bg_v3.1f7aca15.png"
   },
   {
-    title: t("VIP 4"),
-    heading: t("VIP 4 Upgrade Conditions"),
-    text: t("Amount that can be invested $: 2000-5000"),
+    title: t("Expert"),
+    heading: t("Expert Upgrade Conditions"),
+    text: t("Amount that can be invested $: 5001-10000"),
     text1: t("Optional investment period (hours): 24"),
     text2: t("To: 48"),
     price: "vi3-BxULMU4r",
     days: 15,
     purchased: false,
-    effectiveAmount: "5000",
-    tradeAmount: "5000",
-    maxtradeAmount: "15000",
-    DailyTrade: "6",
-    TeamA: "15",
-    TeamBC: "48",
-    roi: "2.6% - 3%",
-    level: "14% / 6% / 4%",
+    effectiveAmount: "5001",
+    tradeAmount: "5001",
+    maxtradeAmount: "10000",
+    DailyTrade: "5",
+    TeamA: "20",
+    TeamBC: "75",
+    roi: "2.90% - 3.10%",
+    level: "10% / 6% / 4% /2% /1%",
     bgImg: "/static/img/bg_v4.f972d897.png"
+  }
+,
+
+
+  {
+    title: t("Professional"),
+    heading: t("Professional Upgrade Conditions"),
+    text: t("Amount that can be invested $: 10001-25000"),
+    text1: t("Optional investment period (hours): 24"),
+    text2: t("To: 48"),
+    price: "vi3-BxULMU4r",
+    days: 15,
+    purchased: false,
+    effectiveAmount: "10001",
+    tradeAmount: "10001",
+    maxtradeAmount: "25000",
+    DailyTrade: "6",
+    TeamA: "25",
+    TeamBC: "125",
+    roi: "3.40% - 3.60%",
+    level: "10% / 6% / 4% /2% /1%",
+    bgImg: "/static/img/vip5.png"
+  }
+,
+
+  {
+    title: t("Ultimate"),
+    heading: t("Ultimate Upgrade Conditions"),
+    text: t("Amount that can be invested $: 25000-100000"),
+    text1: t("Optional investment period (hours): 24"),
+    text2: t("To: 48"),
+    price: "vi3-BxULMU4r",
+    days: 15,
+    purchased: false,
+    effectiveAmount: "25000",
+    tradeAmount: "25000",
+    maxtradeAmount: "100000",
+    DailyTrade: "7",
+    TeamA: "30",
+    TeamBC: "250",
+    roi: "3.90% - 4.10%",
+    level: "10% / 6% / 4% /2% /1%",
+    bgImg: "/static/img/vip6.png"
   }
 ]);
 
@@ -288,7 +331,7 @@ const Server = () => {
                                  </div>
                               </div>
                               <uni-view data-v-0f43bbff="" class="rule-box">
-                                 <uni-view data-v-0f43bbff="" class="title">{slides[currentSlideIndex]?.heading || "VIP Upgrade Conditions"}</uni-view>
+                                 <uni-view data-v-0f43bbff="" class="title">{slides[currentSlideIndex]?.heading || "Rank Upgrade Conditions"}</uni-view>
                                  <uni-view data-v-0f43bbff="" class="layout">
                                     <uni-view data-v-0f43bbff="" class="level">
                                        {/* <img data-v-0f43bbff="" src="/static/img/TeamA.png" alt=""style={{filter: 'brightness(0.72) invert(0)'}} /> */}
@@ -315,23 +358,23 @@ const Server = () => {
 
                               </uni-view>
                               <uni-view data-v-0f43bbff="" class="rule-box">
-                                 <uni-view data-v-0f43bbff="" class="title">{t('VIP Benefits')}</uni-view>
+                                 <uni-view data-v-0f43bbff="" class="title">{t('Rank Benefits')}</uni-view>
                                  <uni-view data-v-0f43bbff="" class="layout">
                                     <uni-view data-v-0f43bbff="" class="level">
                                        {/* <img data-v-0f43bbff="" src="/static/img/TeamA.png" alt=""style={{filter: 'brightness(0.72) invert(0)'}} /> */}
-                                       {t('Minimum Amount Quantifiction')}</uni-view>
+                                       {t('Minimum Amount Trade')}</uni-view>
                                     <uni-view data-v-0f43bbff="" class="rate">${slides[currentSlideIndex]?.tradeAmount || "10%"}</uni-view>
                                  </uni-view>
                                  <uni-view data-v-0f43bbff="" class="layout">
                                     <uni-view data-v-0f43bbff="" class="level">
                                        {/* <img data-v-0f43bbff="" src="/static/img/TeamBC.png" alt=""style={{filter: 'brightness(0.72) invert(0)'}} /> */}
-                                       {t('Maximum Amount Quantifiction')}</uni-view>
+                                       {t('Maximum Amount Trade')}</uni-view>
                                     <uni-view data-v-0f43bbff="" class="rate">${slides[currentSlideIndex]?.maxtradeAmount || "10%"}</uni-view>
                                  </uni-view>
                                  <uni-view data-v-0f43bbff="" class="layout">
                                     <uni-view data-v-0f43bbff="" class="level">
                                        {/* <img data-v-0f43bbff="" src="/static/img/TeamC.png" alt="" style={{filter: 'brightness(0.72) invert(0)'}}/> */}
-                                      {t('Daily Quantified times')}</uni-view>
+                                      {t('Daily Trade times')}</uni-view>
                                     <uni-view data-v-0f43bbff="" class="rate">{slides[currentSlideIndex]?.DailyTrade || "3"}</uni-view>
                                  </uni-view>
                                  <uni-view data-v-0f43bbff="" class="layout">

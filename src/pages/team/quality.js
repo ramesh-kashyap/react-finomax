@@ -12,6 +12,7 @@ import Toast from "../../components/Toast";
 import { useTranslation } from 'react-i18next';
 const Server = () => {
    const { t } = useTranslation();
+     const [vipType, setVipType] = useState('');
    const [activeTab, setActiveTab] = useState("running");
    const [servers, setQualitys] = useState([])
    const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
@@ -101,6 +102,17 @@ const Server = () => {
       },
    ]);
 
+  // VIP level mapping
+  const vipTypeMap = {
+    1: "Trainee",
+    2: "Skilled",
+    3: "Advance",
+    4: "Expert",
+    5: "Professional",
+    6: "Ultimate"
+  };
+
+
    useEffect(() => {
       fetchvip();
       fetchcontract();
@@ -158,12 +170,13 @@ const Server = () => {
             setAvailableBal(response.data.AvailBalance);
          }
 
-         const response_vip = await Api.get("/get_vip");
-         
-         if (response_vip.data.success) {
-            setVip(response_vip.data.vip);
-         }
+          const response_vip = await Api.get("/get_vip");
 
+      if (response_vip.data.success) {
+        const vipValue = response_vip.data.vip;
+        setVip(vipValue);
+        setVipType(vipTypeMap[vipValue] || "0");
+      }
 
       } catch (error) {
          console.error("Error fetching servers:", error);
@@ -439,12 +452,12 @@ const vipRateRange = vipRateMap[vip] || '0';
                            </uni-view>
                         </uni-view>
 
-
+ç
                         <div style={cardStyle}>
       <div style={rowStyle}>
         <div>
-          <span style={labelStyle}>{t('My Level')}</span><br />
-          <span style={valueStyle}>VIP{vip}</span>
+          <span style={labelStyle}>{t('My Rank')}</span><br />
+          <span style={valueStyle}>{vipType}</span>
         </div>
         <div>
           <span style={labelStyle}>{t('Wallet Balance')}</span><br />
