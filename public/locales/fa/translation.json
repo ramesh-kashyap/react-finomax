@@ -1,0 +1,118 @@
+{
+  "WelcomeMarquee": "👋 خوش‌آمدید به Finomax! دوستان خود را دعوت کنید، USDT کسب کنید و با انجام وظایف جوایز را باز کنید.",
+  "ActivityCenter": "مرکز فعالیت",
+  "InviteFriends": "دعوت دوستان",
+  "MarketQuotes": "قیمت‌های بازار",
+  "FAQ": "سؤالات متداول",
+  "What is Finomax?": "Finomax چیست؟",
+  "Finomax is a quantification-based crypto trading platform that uses advanced algorithms and AI models to generate daily profits via high-frequency trading and arbitrage strategies": "Finomax یک پلتفرم معامله‌گری ارز دیجیتال است مبتنی بر کمی‌سازی که با استفاده از الگوریتم‌های پیشرفته و مدل‌های هوش مصنوعی از طریق معاملات با فرکانس بالا و استراتژی‌های آربیتراژ، سودهای روزانه ایجاد می‌کند.",
+  "How does Finomax generate profit?": "Finomax چگونه سودآوری می‌کند؟",
+  "Finomax leverages real-time market data, machine learning, and automated trading bots to execute high-speed trades with minimal latency. Profits are shared with users through structured VIP plans.": "Finomax از داده‌های بازار در زمان واقعی، یادگیری ماشین و ربات‌های معامله‌گر خودکار استفاده می‌کند تا معاملات با سرعت بالا و تأخیر کم انجام دهد؛ سپس سودها از طریق طرح‌های VIP ساختاریافته با کاربران به اشتراک گذاشته می‌شوند.",
+  "What licenses and legal registrations does Finomax have?": "Finomax چه مجوزها و ثبت‌های قانونی‌ای دارد؟",
+  "Finomax LTD is a fully registered and legally incorporated company in the United Kingdom.": "Finomax LTD یک شرکت کاملاً ثبت‌شده و قانونی در بریتانیا است.",
+  "Asset Management": "مدیریت دارایی",
+  "Your Balance(USDT)": "سaldo شما (USDT)",
+  "Deposit": "واریز",
+  "Withdraw": "برداشت",
+  "Funding Details": "جزئیات تأمین مالی",
+  "View all": "مشاهده همه",
+  "My Income": "درآمد من",
+  "Today's Quantify Income": "درآمد معاملات امروز",
+  "My Level": "سطح من",
+  "Wallet Balance": "موجودی کیف‌پول",
+  "Total Income": "کل درآمد",
+  "Today's Earnings": "سودهای امروز",
+  "Quantify Income": "درآمد معاملات",
+  "Team Benefits": "مزایای تیم",
+  "Quantify": "معامله",
+  "Start Quantify": "شروع معامله",
+  "Next Quantify In": "زمان معامله بعدی",
+  "My Quantify": "معاملات من",
+  "Transaction Amount": "مبلغ تراکنش",
+  "Rate Of Return": "نرخ بازگشت",
+  "Bill List": "لیست صورتحساب‌ها",
+  "Trading Pair": "جفت معاملاتی",
+  "Position": "موقعیت",
+  "Amount Of Income": "مبلغ درآمد",
+  "Team Income": "درآمد تیم",
+  "Today's Team Income": "درآمد امروز تیم",
+  "Revenue Record": "سوابق درآمد",
+  "My Team": "تیم من",
+  "Team List": "لیست تیم",
+  "Number Of People In The Team": "تعداد اعضای تیم",
+  "Today's New": "اعضای جدید امروز",
+  "Invite Friends And Earn Coins Together": "دعوت دوستان و کسب ارزها با هم",
+  "Go To Invite": "برو به بخش دعوت",
+  "Team Members": "اعضای تیم",
+  "Team Deposits": "واریزهای تیم",
+  "Team Withdrawal": "برداشت‌های تیم",
+  "Team Commission": "کمیسیون تیم",
+  "Profile": "پروفایل",
+  "Name": "نام",
+  "UID": "UID",
+  "Username": "نام کاربری",
+  "Sponsor": "معرف",
+  "Save": "ذخیره",
+  "Cancel": "انصراف",
+  "Current Rank": "رتبه فعلی",
+  "Username copied": "نام کاربری کپی شد",
+  "Copy Username": "کپی نام کاربری",
+  "VIP Upgrade": "ارتقا VIP",
+  "Terms Of Use": "شرایط استفاده",
+  "Record": "سوابق",
+  "Email Address": "آدرس ایمیل",
+  "Invite friends and earn referral commission": "دعوت دوستان و کسب کمیسیون معرفی",
+  "Wallet": "کیف‌پول",
+  "Manage wallet addresses and bank cards": "مدیریت آدرس کیف‌پول و کارت‌های بانکی",
+  "Login Password": "رمز ورود",
+  "Manage or Update Your Login Password": "مدیریت یا بروزرسانی رمز ورود",
+  "Telegram Channel": "کانال تلگرام",
+  "Lets join Our team": "به تیم ما بپیوندید",
+  "Google Play Store": "فروشگاه گوگل پلی",
+  "Finomax application": "اپلیکیشن Finomax",
+  "Language": "زبان",
+  "you can change your own language": "می‌توانید زبان خود را تغییر دهید",
+  "Logout": "خروج",
+  "Team": "تیم",
+  "Assets": "دارایی‌ها",
+  "Home": "خانه",
+  "Reward": "جایزه",
+  "Claimed": "دریافت شده",
+  "Claim": "دریافت",
+  "Invitation link": "لینک دعوت",
+  "Invite link not available": "لینک دعوت در دسترس نیست",
+  "Copy invitation link": "کپی لینک دعوت",
+  "Invitation code": "کد دعوت",
+  "Click to copy the invitation code": "برای کپی کد دعوت کلیک کنید",
+  "Select Deposit Type": "نوع واریز را انتخاب کنید",
+  "Amount": "مقدار",
+  "Minimum Recharge": "حداقل شارژ",
+  "Only Networks Accepted": "فقط شبکه‌های BEP20 یا TRC20 پذیرفته می‌شوند.",
+  "Recharge Warning": "هیچ ارز دیگری ارسال نکنید — وجوه ارسال‌شده اشتباه قابل بازگشت نیست.",
+  "Withdrawal": "برداشت",
+  "Available Balance": "مانده قابل برداشت",
+  "Wallet Type": "نوع کیف‌پول",
+  "Wallet Address": "آدرس کیف‌پول",
+  "Verification Code": "کد تأیید",
+  "Submit": "ارسال",
+  "Add New": "افزودن جدید",
+  "Withdrawal Rules": "قوانین برداشت",
+  "Create Time": "زمان ایجاد",
+  "Type": "نوع",
+  "Withdraw Records": "سوابق برداشت",
+  "Add Wallet": "افزودن کیف‌پول",
+  "Add Wallet Address": "افزودن آدرس کیف‌پول",
+  "Revenue Distribution": "توزیع درآمد",
+  "Quantify History": "تاریخچه معاملات",
+  "Level Team": "تیم بر اساس سطح",
+  "Total Deposits": "کل واریزها",
+  "Today's Commission": "کمیسیون امروز",
+  "Yesterday's Commission": "کمیسیون دیروز",
+  "Total Commission": "کل کمیسیون",
+  "Edit": "ویرایش",
+  "Account Information": "اطلاعات حساب",
+  "Email ID": "شناسه ایمیل",
+  "Change Password": "تغییر رمز عبور",
+  "New Password": "رمز عبور جدید",
+  "Confirm Password": "تأیید رمز عبور"
+}

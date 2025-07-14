@@ -1,0 +1,194 @@
+{
+  "WelcomeMarquee": "👋 مرحبًا بك في Finomax! ادعُ أصدقاءك، واكسب USDT، وأكمل المهام لفتح المكافآت.",
+  "ActivityCenter": "مركز الأنشطة",
+  "InviteFriends": "دعوة الأصدقاء",
+  "MarketQuotes": "اقتباسات السوق",
+  "FAQ": "الأسئلة الشائعة",
+  "What is Finomax?": "ما هو Finomax؟",
+  "Finomax is a quantification-based crypto trading platform that uses advanced algorithms and AI models to generate daily profits through high-frequency and arbitrage strategies": "Finomax هي منصة لتداول العملات الرقمية تعتمد على النماذج الكمية وتستخدم خوارزميات متقدمة ونماذج ذكاء اصطناعي لتحقيق أرباح يومية من خلال التداول عالي التردد واستراتيجيات المراجحة.",
+  "How does Finomax generate profit?": "كيف يحقق Finomax الأرباح؟",
+  "Finomax leverages real-time market data, machine learning, and automated trading bots to execute high-speed trades with minimal latency. Profits are shared with users through structured VIP plans.": "يستفيد Finomax من بيانات السوق اللحظية وتعلم الآلة والروبوتات التداولية المؤتمتة لتنفيذ الصفقات بسرعة عالية وبأدنى قدر من التأخير. يتم تقاسم الأرباح مع المستخدمين من خلال خطط VIP منظمة.",
+  "What licenses and legal registrations does Finomax have?": "ما التراخيص والتسجيلات القانونية التي يمتلكها Finomax؟",
+  "Finomax LTD is a fully registered and legally incorporated company in the United Kingdom.": "Finomax LTD هي شركة مسجلة بالكامل ومؤسسة قانونياً في المملكة المتحدة.",
+  "Asset Management": "إدارة الأصول",
+  "Your Balance(USDT)": "رصيدك (USDT)",
+  "Deposit": "إيداع",
+  "Withdraw": "سحب",
+  "Funding Details": "تفاصيل التمويل",
+  "View all": "عرض الكل",
+  "My Income": "دخلي",
+  "Today's Quantify Income": "دخل التكمية اليومي",
+  "My Level": "مستواي",
+  "Wallet Balance": "رصيد المحفظة",
+  "Total Income": "إجمالي الدخل",
+  "Today's Earnings": "أرباح اليوم",
+  "Quantify Income": "دخل التكمية",
+  "Team Benefits": "مزايا الفريق",
+  "Quantify": "التكمية",
+  "Start Quantify": "ابدأ التداول الكمي",
+  "Next Quantify In": "التالي في التداول الكمي",
+  "My Quantify": "تداولي الكمي",
+  "Transaction Amount": "مبلغ المعاملة",
+  "Rate Of Return": "معدل العائد",
+  "Bill List": "قائمة الفواتير",
+  "Trading Pair": "زوج التداول",
+  "Position": "الموضع",
+  "Amount Of Income": "مبلغ الربح",
+  "Team Income": "دخل الفريق",
+  "Today's Team Income": "دخل الفريق اليوم",
+  "Revenue Record": "سجل الإيرادات",
+  "My Team": "فريقي",
+  "Team List": "قائمة الفريق",
+  "Number Of People In The Team": "عدد الأشخاص في الفريق",
+  "Today's New": "الجديد اليوم",
+  "Invite Friends": "ادعُ الأصدقاء",
+  "Invite Friends And Earn Coins Together": "ادعُ الأصدقاء واربح العملات معًا",
+  "Go To Invite": "اذهب للدعوة",
+  "Team Members": "أعضاء الفريق",
+  "Team Deposits": "إيداعات الفريق",
+  "Team Withdrawal": "سحب الفريق",
+  "Team Commission": "عمولة الفريق",
+  "Profile": "الملف الشخصي",
+  "Name": "الاسم",
+  "UID": "معرّف المستخدم",
+  "Username": "اسم المستخدم",
+  "Sponsor": "الراعي",
+  "Save": "حفظ",
+  "Cancel": "إلغاء",
+  "Current Rank": "الرتبة الحالية",
+  "Username copied": "تم نسخ اسم المستخدم",
+  "Copy Username": "نسخ اسم المستخدم",
+  "VIP Upgrade": "ترقية VIP",
+  "Terms Of Use": "شروط الاستخدام",
+  "Record": "السجل",
+  "Email Address": "عنوان البريد الإلكتروني",
+  "Invite friends and earn referral commission": "ادعُ الأصدقاء واربح عمولة الإحالة",
+  "Wallet": "المحفظة",
+  "Manage wallet addresses and bank cards": "إدارة عناوين المحفظة وبطاقات البنك",
+  "Login Password": "كلمة المرور",
+  "Manage or Update Your Login Passowrd": "إدارة أو تحديث كلمة المرور الخاصة بك",
+  "Telegram Channel": "قناة تيليجرام",
+  "Lets join Our team": "انضم إلى فريقنا",
+  "Google Play Store": "متجر Google Play",
+  "Finomax application": "تطبيق Finomax",
+  "Language": "لغة",
+  "you can change own language": "يمكنك تغيير لغتك الخاصة",
+  "Logout": "تسجيل الخروج",
+  "Team": "الفريق",
+  "Assets": "الأصول",
+  "Home": "الرئيسية",
+  "task": {
+    "invite_3_title": "دعوة 3 مستخدمين صالحين",
+    "invite_3_desc": "تدعو 3 أشخاص ويودعون 100 دولار في حساب Finomax الخاص بهم. ستحصل على 18 دولارًا كمكافأة مباشرة.",
+    "invite_6_title": "دعوة 6 مستخدمين صالحين",
+    "invite_6_desc": "تدعو 6 أشخاص ويودعون 100 دولار في حساب Finomax الخاص بهم. ستحصل على 36 دولارًا كمكافأة مباشرة.",
+    "invite_12_title": "دعوة 12 مستخدمًا صالحًا",
+    "invite_12_desc": "تدعو 12 شخصًا ويودعون 100 دولار في حساب Finomax الخاص بهم. ستحصل على 72 دولارًا كمكافأة مباشرة.",
+    "invite_24_title": "دعوة 24 مستخدمًا صالحًا",
+    "invite_24_desc": "تدعو 24 شخصًا ويودعون 100 دولار في حساب Finomax الخاص بهم. ستحصل على 144 دولارًا كمكافأة مباشرة.",
+    "invite_48_title": "دعوة 48 مستخدمًا صالحًا",
+    "invite_48_desc": "تدعو 48 شخصًا ويودعون 100 دولار في حساب Finomax الخاص بهم. ستحصل على 288 دولارًا كمكافأة مباشرة.",
+    "invite_96_title": "دعوة 96 مستخدمًا صالحًا",
+    "invite_96_desc": "تدعو 96 شخصًا ويودعون 100 دولار في حساب Finomax الخاص بهم. ستحصل على 576 دولارًا كمكافأة مباشرة."
+  },
+  "Reward": "المكافأة",
+  "Claimed": "تم الاستلام",
+  "Claim": "استلم",
+  "Upgrade To VIP2": "الترقية إلى VIP2",
+  "Upgrade To VIP2 To Receive 40 USDT": "قم بالترقية إلى VIP2 للحصول على 40 USDT",
+  "Upgrade To VIP3": "الترقية إلى VIP3",
+  "Upgrade To VIP3 To Receive 160 USDT": "قم بالترقية إلى VIP3 للحصول على 160 USDT",
+  "Upgrade To VIP4": "الترقية إلى VIP4",
+  "Upgrade To VIP4 To Receive 360 USDT": "قم بالترقية إلى VIP4 للحصول على 360للحصول على  USDT",
+  "Long Term Mission": "مهمة طويلة المدى",
+  "Invitation Task": "مهمة الدعوة",
+  "Mission Center": "مركز المهام",
+  "Invitation link": "رابط الدعوة",
+  "Invite link not available": "رابط الدعوة غير متاح",
+  "Copy invitation link": "نسخ رابط الدعوة",
+  "ShareMessageLine1": "دعنا ننشر Finomax إلى العالم معًا،",
+  "ShareMessageLine2": "حتى يشعر الجميع بالفرح والمكافأة",
+  "Invitation code": "رمز الدعوة",
+  "Click to copy the invitation code": "انقر لنسخ رمز الدعوة",
+  "Select Deposit Type": "اختر نوع الإيداع",
+  "Amount": "المبلغ",
+  "Minimum Recharge": "الحد الأدنى لإعادة الشحن",
+  "Only Networks Accepted": "يُقبل فقط شبكات BEP20 أو TRC20.",
+  "Recharge Warning": "لا ترسل أي عملة أو شبكة أخرى — الأموال المرسلة بشكل غير صحيح ستضيع ولن يتم استردادها.",
+  "Withdrawal": "السحب",
+  "Available Balance": "الرصيد المتاح",
+  "Wallet Type": "نوع المحفظة",
+  "Wallet Address": "عنوان المحفظة",
+  "Verification Code": "رمز التحقق",
+  "Submit": "إرسال",
+  "Add New": "إضافة جديد",
+  "Withdrawal Rules": "قواعد السحب",
+  "withdraw_rule_1": "1. الحد الأدنى لمبلغ السحب هو",
+  "withdraw_rule_2": "2. الحد الأقصى للسحب يومياً هو",
+  "withdraw_rule_3": "3. السحب الأول: يتم خلال 24 ساعة.",
+  "withdraw_rule_4": "4. يمكن للمستخدمين السحب لأول مرة بعد 72 ساعة.",
+  "withdraw_rule_5": "5. وقت معالجة السحب العادي: خلال 72 ساعة.",
+  "withdraw_rule_6": "6. لا يوجد سحب لمدة 21 يومًا؟ يمكنك السحب بدون رسوم.",
+  "withdraw_rule_7": "7. رسوم السحب: 8٪ من المبلغ + 2 دولار رسوم ثابتة.",
+  "withdraw_rule_8": "8. تغيير عنوان المحفظة: سيتم تعطيل السحب لمدة 36 ساعة بعد التغيير.",
+  "withdraw_rule_9": "9. تغيير كلمة المرور: سيتم تعطيل السحب لمدة 24 ساعة بعد التغيير.",
+  "Create Time": "وقت الإنشاء",
+  "Type": "النوع",
+  "Withdraw Records": "سجلات السحب",
+  "Add Wallet": "إضافة محفظة",
+  "Add Wallet Address": "إضافة عنوان المحفظة",
+  "Revenue Distribution": "توزيع الأرباح",
+  "Quantify History": "سجل التداول",
+  "Level Team": "فريق المستوى",
+  "Total Deposits": "إجمالي الإيداعات",
+  "Today's Commission": "عمولة اليوم",
+  "Yesterday's Commission": "عمولة الأمس",
+  "Total Commission": "إجمالي العمولات",
+  "Edit": "يحرر",
+  "Account Information": "معلومات الحساب",
+  "Email ID": "البريد الإلكتروني",
+  "VIP 1": "VIP 1",
+  "VIP 1 Upgrade Conditions": "شروط الترقية إلى VIP 1",
+  "Amount that can be invested $: 30-500": "المبلغ الذي يمكن استثماره $: 30-500",
+  "Optional investment period (hours): 12": "مدة الاستثمار الاختيارية (ساعات): 12",
+  "To: 24": "إلى: 24",
+  "VIP 2": "VIP 2",
+  "VIP 2 Upgrade Conditions": "شروط الترقية إلى VIP 2",
+  "Amount that can be invested $: 100-300": "المبلغ الذي يمكن استثماره $: 100-300",
+  "VIP 3": "VIP 3",
+  "VIP 3 Upgrade Conditions": "شروط الترقية إلى VIP 3",
+  "Amount that can be invested $: 500-2000": "المبلغ الذي يمكن استثماره $: 500-2000",
+  "VIP 4": "VIP 4",
+  "VIP 4 Upgrade Conditions": "شروط الترقية إلى VIP 4",
+  "Amount that can be invested $: 2000-5000": "المبلغ الذي يمكن استثماره $: 2000-5000",
+  "Optional investment period (hours): 24": "مدة الاستثمار الاختيارية (ساعات): 24مدة الاستثمار الاختيارية (ساعات): ",
+  "Current": "الحالي",
+  "Achieved": "تم إنجازه",
+  "Not Achieved": "لم يتم الإنجاز",
+  "Unlocked this level": "تم فتح هذا المستوى",
+  "Not unlocked this level yet": "لم يتم فتح هذا المستوى بعد",
+  "Effective Amount": "المبلغ الفعّال",
+  "First Generation Valid Members": "أعضاء الجيل الأول المؤهلين",
+  "Second + Third Generation Valid Members": "أعضاء الجيل الثاني والثالث المؤهلين",
+  "VIP Benefits": "مزايا VIP",
+  "Minimum Amount Quantifiction": "أقل مبلغ للكمية",
+  "Maximum Amount Quantifiction": "أقصى مبلغ للكمية",
+  "Daily Quantified times": "عدد مرات التكميم اليومي",
+  "Return on Investment": "العائد على الاستثمار",
+  "Level Income Up to Level": "دخل المستوى حتى المستوى",
+  "Upgrade Level": "ترقية المستوى",
+  "Terms": "الشروط",
+  "Finomax is a platform providing investment, team management, and cryptocurrency revenue services. The following content is based on user input to ensure clarity and compliance with policies.": "Finomax هي منصة توفر خدمات الاستثمار وإدارة الفريق وإيرادات العملات الرقمية. المحتوى التالي يعتمد على مدخلات المستخدم لضمان الوضوح والامتثال للسياسات.",
+  "Data Collection And Usage": "جمع البيانات واستخدامها",
+  "Policies may require users to provide information such as phone numbers, usernames, and passwords to create accounts, which are used for account management, risk control, and commission calculation purposes.": "قد تتطلب السياسات من المستخدمين تقديم معلومات مثل أرقام الهواتف وأسماء المستخدمين وكلمات المرور لإنشاء الحسابات، والتي تُستخدم لإدارة الحساب والتحكم في المخاطر وحساب العمولات.",
+  "Collected personal information includes contact details, identity verification, financial transaction records, and team structure. Purposes of use include service provision, compliance operations, and platform improvement.": "تشمل المعلومات الشخصية التي يتم جمعها تفاصيل الاتصال، والتحقق من الهوية، وسجلات المعاملات المالية، وهيكل الفريق. تشمل أغراض الاستخدام تقديم الخدمة، وعمليات الامتثال، وتحسين المنصة.",
+  "Data Sharing And Security": "مشاركة البيانات والأمان",
+  "Security measures include SSL encryption, regular data backups, and employee confidentiality agreements. Cross-border data transfer declarations are required under GDPR/CCPA.": "تشمل تدابير الأمان تشفير SSL، والنسخ الاحتياطي المنتظم للبيانات، واتفاقيات السرية مع الموظفين. يتطلب نقل البيانات عبر الحدود التصريحات المطلوبة بموجب GDPR/CCPA.",
+  "User Rights": "حقوق المستخدم",
+  "Users have the right to access, correct, or delete personal information and may revoke authorization. Contact information will be provided to users to exercise these rights.": "يحق للمستخدمين الوصول إلى المعلومات الشخصية أو تصحيحها أو حذفها وقد يلغون التفويض. سيتم توفير معلومات الاتصال للمستخدمين لممارسة هذه الحقوق.",
+  "Background And Policy Framework": "الخلفية والإطار السياساتي",
+  "Finomax provides services such as investment, team management, and revenue calculation. The privacy policy covers key modules such as data collection scope, usage, sharing, security measures, and user rights. Additionally, special clauses on cross-border transfers and dispute resolution address complex data processing scenarios.": "تقدم Finomax خدمات مثل الاستثمار وإدارة الفريق وحساب الإيرادات. تغطي سياسة الخصوصية وحدات رئيسية مثل نطاق جمع البيانات، واستخدامها، ومشاركتها، وتدابير الأمان، وحقوق المستخدم. بالإضافة إلى ذلك، تتناول البنود الخاصة عمليات نقل البيانات عبر الحدود وتسوية النزاعات في سيناريوهات معالجة البيانات المعقدة.",
+  "Change Password": "تغيير كلمة المرور",
+  "New Password": "كلمة المرور الجديدة",
+  "Confirm Password": "تأكيد كلمة المرور"
+}
