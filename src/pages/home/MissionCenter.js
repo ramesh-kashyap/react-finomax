@@ -11,8 +11,13 @@ const CheckUsers = () => {
     const [Users, setUsers] = useState(0);
     const [error, setError] = useState("");
     const [claimedTasks, setClaimedTasks] = useState([]);
+    const [qualifiedTasks, setQualifiedTasks] = useState([]);
     useEffect(() => {
         fetchClaimedTasks();
+        const interval = setInterval(() =>{
+            fetchClaimedTasks();
+        },1000);
+        return () => clearInterval(interval);
         checkUsers();        
     }, []);
     const checkUsers = async () => {
@@ -28,24 +33,25 @@ const CheckUsers = () => {
        const fetchClaimedTasks = async () => {
     try {
         const response = await Api.get("/checkClaimed");
-        const claimed = response.data?.claimed || [];
-        const claimedRewards = claimed.map(task => task.comm); // ✅ extract only comm
-        setClaimedTasks(claimedRewards);
+        const claimed = response.data;
+        // console.log(response.data);
+         const results = response.data?.results || [];
+    setQualifiedTasks(results);
     } catch (err) {
         console.error("Failed to fetch claimed tasks", err);
     }
 };
 
 
-    const handleClaim = async (reward) => {
-        try {
-            await Api.post('/claimTask', { taskReward: reward });  // ✅ sending reward
-            toast.success("Task claimed successfully!");
-            setClaimedTasks(prev => [...prev, reward]);  // ✅ track by reward
-        } catch (err) {
-            toast.error(err.response?.data?.message || "Claim failed");
-        }
-    };
+    const handleClaim = async (bonus) => {
+  try {
+    const res = await Api.post('/claimRRB', { taskReward: bonus});  
+    toast.success("Rapid Rise Bonus claimed successfully!");
+    fetchClaimedTasks(); // refresh claim list
+  } catch (err) {
+    toast.error(err.response?.data?.message || "Claim failed");
+  }
+};
 
     const cardStyle = {
         background: 'linear-gradient(135deg, rgb(19 20 21), rgb(27, 27, 30))',
@@ -56,11 +62,11 @@ const CheckUsers = () => {
     };
 
     const headingStyle = {
-        fontSize: '22px',
+        fontSize: '20px',
         fontWeight: 'bold',
         marginBottom: '10px',
         color: '#51fbc1',
-        background: 'linear-gradient(to bottom, #ffb400, #ffffff)',
+        background: 'linear-gradient(to bottom, #51fbc1, #ffffff)',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
         
@@ -77,7 +83,7 @@ const CheckUsers = () => {
         fontWeight: 'bold',
         color: '#51fbc1',
         margin: '10px 0',
-         background: 'linear-gradient(to bottom, #ffb400, #ffffff)',
+         background: 'linear-gradient(to bottom, #51fbc1, #ffffff)',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
     };
@@ -104,7 +110,7 @@ const CheckUsers = () => {
         borderRadius: '10px',
         cursor: 'pointer',
         fontWeight: 'bold',
-        width: '100%',
+        width: '90%',
         marginTop: '10px',
     };
 
@@ -235,6 +241,7 @@ const tasks = rawTasks.map((task) => {
             <uni-app class="uni-app--maxwidth">
                 <uni-page data-page="pages/index/message">
                     <uni-page-wrapper>
+                        <Toaster />
                         <uni-page-body>
                             <uni-view data-v-c62a6474="" class="page">
                                 <uni-view data-v-c62a6474="" class="ellipse"></uni-view>
@@ -272,35 +279,76 @@ const tasks = rawTasks.map((task) => {
                                     </div>
 
 
-                                    {tasks.map((task, index) => (
-                                    <div key={index} style={cardStyle}>
-                                        <div style={headingStyle}>{task.title}</div>
-                                        <div style={subTextStyle}>{task.description}</div>
-                                        <div style={rewardStyle}>{t('Reward')}: {task.reward} USDT</div>
-                                        <div style={progressBarBackground}>
-                                            <div style={progressBarFill((task.progress / task.total) * 100)} />
-                                        </div>
-                                        <div style={subTextStyle}>2 days 00:02:30</div>
+   {qualifiedTasks.map((task, index) => {
+  const isClaimed = task?.claimed === true;
+  const canClaim = task.qualified === true;
+  const isExpired = task.timeLeft === "Expired";
+  const showTimer = typeof task.timeLeft === "object" && !canClaim;
 
-                                        {task.isClaimed ? (
-                                            <button style={{ ...buttonStyle, backgroundColor: '#ccc0', color: '#555' }} disabled>{t('Claimed')}</button>
-                                        ) : (
-                                            <button
-                                                style={{
-                                                    ...buttonStyle,
-                                                    backgroundColor: task.isCompleted ? '#51fbc1' : 'transparent',
-                                                    color: task.isCompleted ? '#000' : '#51fbc1',
-                                                    cursor: task.isCompleted ? 'pointer' : 'not-allowed',
-                                                    opacity: task.isCompleted ? 1 : 0.5
-                                                }}
-                                                disabled={!task.isCompleted}
-                                                onClick={() => handleClaim(task.reward)}
-                                            >
-                                                {t('Claim')}
-                                            </button>
-                                        )}
-                                    </div>
-                                ))}
+  return (
+    <div key={index} style={cardStyle}>
+      <div style={headingStyle}>
+        Invited {task.team} Valid users within {task.days} days
+      </div>
+      <div style={subTextStyle}>
+        You Invite {task.teamSizeRequired} Person within {task.days} Days and they deposit 100 into their Finomax account. You receive {task.bonus} Bonus
+      </div>
+      <div style={rewardStyle}>
+        {t('Reward')}: {task.bonus} USDT
+      </div>
+      <div style={progressBarBackground}>
+        <div style={progressBarFill((task.activeReferrals / task.teamSizeRequired) * 100)} />
+      </div>
+      <div style={subTextStyle}>
+        {task.activeReferrals}/{task.teamSizeRequired}
+      </div>
+
+      {isClaimed || isExpired ? (
+        <button
+          style={{ ...buttonStyle, backgroundColor: '#ccc0', color: '#555' , width:"100%"}}
+          disabled
+        >
+          {isExpired ? "Expired" : "Claimed"}
+        </button>
+      ) : canClaim ? (
+        <button
+          style={{
+            ...buttonStyle,
+            backgroundColor: '#51fbc1',
+            color: '#000',
+            cursor: 'pointer',
+            opacity: 1,
+            width: "100%"
+          }}
+          onClick={() => handleClaim(task.bonus.replace("$", ""))}
+        >
+          Claim
+        </button>
+      ) : showTimer ? (
+        <div style={{ ...buttonStyle, textAlign: 'center', cursor: 'default' }}>
+          ⏳ {task.timeLeft.days}d {task.timeLeft.hours}h {task.timeLeft.minutes}m {task.timeLeft.seconds}s
+        </div>
+      ) 
+      : (
+        <button
+          style={{
+            ...buttonStyle,
+            backgroundColor: 'transparent',
+            color: '#aaa',
+            cursor: 'not-allowed',
+            opacity: 0.5
+          }}
+          disabled
+        >
+          Not Eligible
+        </button>
+      )
+      }
+    </div>
+  );
+})}
+
+
                             </uni-view>
                         </uni-page-body>
                     </uni-page-wrapper>
