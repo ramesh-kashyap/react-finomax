@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronDown } from "lucide-react";
 import { Link,useNavigate } from "react-router-dom";
-import Api from "../../Requests/Api";
+import Api from "../../Requests/Api.js";
 import { toast } from 'react-toastify';
 import { useTranslation } from 'react-i18next';
 

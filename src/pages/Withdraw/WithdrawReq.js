@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
-import Api from "../../Requests/Api";
+import Api from "../../Requests/Api.js";
 import { Toaster, toast } from 'react-hot-toast';
 import WithdrawalInfo from "./WithdrawalInfo";
 import Toast from "../../components/Toast";
@@ -307,7 +307,7 @@ const WithdrawReq = () => {
                                             {cooldown === 0 ? 'Send' : `Wait ${cooldown}s`}
                                           </uni-view>
  
-              {/* <uni-view data-v-53c5f33f="" class="resend" onClick={handleSendRequest}  style={{color:'#000'}}>Send</uni-view> */}
+              {/* <uni-view data-v-53c5f33f="" class="resend" onClick={handleSend}  style={{color:'#000'}}>Send</uni-view> */}
             </uni-view>
           </uni-view>
         </uni-view>
