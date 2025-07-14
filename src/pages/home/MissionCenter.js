@@ -12,8 +12,13 @@ const CheckUsers = () => {
     const [error, setError] = useState("");
     const [claimedTasks, setClaimedTasks] = useState([]);
     const [qualifiedTasks, setQualifiedTasks] = useState([]);
+    const [qualifiedTasks, setQualifiedTasks] = useState([]);
     useEffect(() => {
         fetchClaimedTasks();
+        const interval = setInterval(() =>{
+            fetchClaimedTasks();
+        },1000);
+        return () => clearInterval(interval);
         const interval = setInterval(() =>{
             fetchClaimedTasks();
         },1000);
@@ -34,7 +39,7 @@ const CheckUsers = () => {
     try {
         const response = await Api.get("/checkClaimed");
         const claimed = response.data;
-        console.log(response.data);
+        // console.log(response.data);
          const results = response.data?.results || [];
     setQualifiedTasks(results);
     } catch (err) {
@@ -43,6 +48,15 @@ const CheckUsers = () => {
 };
 
 
+    const handleClaim = async (bonus) => {
+  try {
+    const res = await Api.post('/claimRRB', { taskReward: bonus});  
+    toast.success("Rapid Rise Bonus claimed successfully!");
+    fetchClaimedTasks(); // refresh claim list
+  } catch (err) {
+    toast.error(err.response?.data?.message || "Claim failed");
+  }
+};
     const handleClaim = async (bonus) => {
   try {
     const res = await Api.post('/claimRRB', { taskReward: bonus});  
@@ -63,9 +77,11 @@ const CheckUsers = () => {
 
     const headingStyle = {
         fontSize: '20px',
+        fontSize: '20px',
         fontWeight: 'bold',
         marginBottom: '10px',
         color: '#51fbc1',
+        background: 'linear-gradient(to bottom, #51fbc1, #ffffff)',
         background: 'linear-gradient(to bottom, #51fbc1, #ffffff)',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
@@ -83,6 +99,7 @@ const CheckUsers = () => {
         fontWeight: 'bold',
         color: '#51fbc1',
         margin: '10px 0',
+         background: 'linear-gradient(to bottom, #51fbc1, #ffffff)',
          background: 'linear-gradient(to bottom, #51fbc1, #ffffff)',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
@@ -110,6 +127,7 @@ const CheckUsers = () => {
         borderRadius: '10px',
         cursor: 'pointer',
         fontWeight: 'bold',
+        width: '90%',
         width: '90%',
         marginTop: '10px',
     };
@@ -242,6 +260,7 @@ const tasks = rawTasks.map((task) => {
                 <uni-page data-page="pages/index/message">
                     <uni-page-wrapper>
                         <Toaster />
+                        <Toaster />
                         <uni-page-body>
                             <uni-view data-v-c62a6474="" class="page">
                                 <uni-view data-v-c62a6474="" class="ellipse"></uni-view>
@@ -277,6 +296,76 @@ const tasks = rawTasks.map((task) => {
                                         );
                                     })}
                                     </div>
+
+
+   {qualifiedTasks.map((task, index) => {
+  const isClaimed = task?.claimed === true;
+  const canClaim = task.qualified === true;
+  const isExpired = task.timeLeft === "Expired";
+  const showTimer = typeof task.timeLeft === "object" && !canClaim;
+
+  return (
+    <div key={index} style={cardStyle}>
+      <div style={headingStyle}>
+        Invited {task.team} Valid users within {task.days} days
+      </div>
+      <div style={subTextStyle}>
+        You Invite {task.teamSizeRequired} Person within {task.days} Days and they deposit 100 into their Finomax account. You receive {task.bonus} Bonus
+      </div>
+      <div style={rewardStyle}>
+        {t('Reward')}: {task.bonus} USDT
+      </div>
+      <div style={progressBarBackground}>
+        <div style={progressBarFill((task.activeReferrals / task.teamSizeRequired) * 100)} />
+      </div>
+      <div style={subTextStyle}>
+        {task.activeReferrals}/{task.teamSizeRequired}
+      </div>
+
+      {isClaimed || isExpired ? (
+        <button
+          style={{ ...buttonStyle, backgroundColor: '#ccc0', color: '#555' , width:"100%"}}
+          disabled
+        >
+          {isExpired ? "Expired" : "Claimed"}
+        </button>
+      ) : canClaim ? (
+        <button
+          style={{
+            ...buttonStyle,
+            backgroundColor: '#51fbc1',
+            color: '#000',
+            cursor: 'pointer',
+            opacity: 1,
+            width: "100%"
+          }}
+          onClick={() => handleClaim(task.bonus.replace("$", ""))}
+        >
+          Claim
+        </button>
+      ) : showTimer ? (
+        <div style={{ ...buttonStyle, textAlign: 'center', cursor: 'default' }}>
+          ⏳ {task.timeLeft.days}d {task.timeLeft.hours}h {task.timeLeft.minutes}m {task.timeLeft.seconds}s
+        </div>
+      ) 
+      : (
+        <button
+          style={{
+            ...buttonStyle,
+            backgroundColor: 'transparent',
+            color: '#aaa',
+            cursor: 'not-allowed',
+            opacity: 0.5
+          }}
+          disabled
+        >
+          Not Eligible
+        </button>
+      )
+      }
+    </div>
+  );
+})}
 
 
    {qualifiedTasks.map((task, index) => {
