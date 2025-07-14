@@ -12,20 +12,22 @@ const { t } = useTranslation();
   const [validUsers, setValidUsers] = useState(0);
   const [claimedTasks, setClaimedTasks] = useState([]);
   const [vipLevel, setVipLevel] = useState(0);
+  const [vipTask, setVipTasks] = useState([]);
     useEffect(() => {
-    fetchClaimedVip();
+    fetchComBuRe();
     checkVip();
   }, []);
+
   const checkVip = async () => {
-    try {
-      const response = await Api.get("/get_vip");
-      console.log(response.data);
-      setVipLevel(parseInt(response.data.vip || 0));
-    } catch (err) {
-      console.error("Error fetching VIP level:", err);
-    }
-  };
-        const fetchClaimedVip = async () => {
+  try {
+    const response = await Api.get("/get_comm");
+    console.log(response.data);
+    setVipTasks(response.data.results); // ✅ store array
+  } catch (err) {
+    console.error("Error fetching VIP level:", err);
+  }
+};
+        const fetchComBuRe = async () => {
     try {
       const response = await Api.get("/vipterms");
       const claimed = response.data?.claimed || [];
@@ -59,7 +61,7 @@ const { t } = useTranslation();
         fontWeight: 'bold',
         marginBottom: '10px',
         color: '#51fbc1',
-        background: 'linear-gradient(to bottom, #ffb400, #ffffff)',
+        background: 'linear-gradient(to bottom, #51fbc1, #ffffff)',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
        
@@ -76,7 +78,7 @@ const { t } = useTranslation();
         fontWeight: 'bold',
         color: '#51fbc1',
         margin: '10px 0',
-         background: 'linear-gradient(to bottom, #ffb400, #ffffff)',
+         background: 'linear-gradient(to bottom, #51fbc1, #ffffff)',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
     };
@@ -223,38 +225,66 @@ const { t } = useTranslation();
                                     })}
                                     </div>
 
-                                   {tasks.map((task, index) => (
-                  <div key={index} style={cardStyle}>
-                    <div style={headingStyle}>{task.title}</div>
-                    <div style={subTextStyle}>{task.description}</div>
-                    <div style={rewardStyle}>{t('Reward')}: {task.reward} USDT</div>
-                    {/* <div style={subTextStyle}>{task.progress}/{task.total}</div> */}
- 
-                    {!task.isUnlocked ? (
-                      <button style={{ ...buttonStyle, backgroundColor: '#111', color: '#888', cursor: 'not-allowed' }} disabled>
-                        Locked (VIP {index + 2} required)
-                      </button>
-                    ) : task.isClaimed ? (
-                      <button style={{ ...buttonStyle, backgroundColor: '#ccc0', color: '#555' }} disabled>
-                        {t('Claimed')}
-                      </button>
-                    ) : (
-                      <button
-                        style={{
-                          ...buttonStyle,
-                          backgroundColor: task.isCompleted ? '#ccc0' : '#51fbc1',
-                          color: task.isCompleted ? 'F5C144' : '#000',
-                          opacity: task.isCompleted ? 0.5 : 1,
-                          cursor: task.isCompleted ? 'not-allowed' : 'pointer',
-                        }}
-                        // disabled={!task.isCompleted}
-                        onClick={() => handleClaim(task.reward)}
-                      >
-                        {t('Claim')}
-                      </button>
-                    )}
-                  </div>
-                ))}
+                                   {vipTask.map((task, index) => {
+  const isClaimed = task.claimed;
+  const isUnlocked = task.activeReferrals >= 1; // You can change condition
+  const canClaim = task.qualified && !isClaimed;
+
+  return (
+    <div key={index} style={cardStyle}>
+      <div style={headingStyle}>
+        Team Size: {task.team} 
+      </div>
+      <div style={subTextStyle}>
+        You invited {task.activeReferrals}/{task.teamSizeRequired} valid users  and they deposit 100 into their Finomax account. You receive.{task.bonus}
+      </div>
+      <div style={rewardStyle}>Reward: {task.bonus} USDT</div>
+      <div style={subTextStyle}>
+        {task.activeReferrals}/{task.teamSizeRequired}
+      </div>
+
+      {!isUnlocked ? (
+        <button
+          style={{
+            ...buttonStyle,
+            backgroundColor: '#111',
+            color: '#888',
+            cursor: 'not-allowed',
+          }}
+          disabled
+        >
+          Locked (VIP {index + 2} required)
+        </button>
+      ) : isClaimed ? (
+        <button
+          style={{
+            ...buttonStyle,
+            backgroundColor: '#ccc0',
+            color: '#555',
+          }}
+          disabled
+        >
+          Claimed
+        </button>
+      ) : (
+        <button
+          style={{
+            ...buttonStyle,
+            backgroundColor: canClaim ? '#51fbc1' : '#ccc0',
+            color: canClaim ? '#000' : '#F5C144',
+            opacity: canClaim ? 1 : 0.5,
+            cursor: canClaim ? 'pointer' : 'not-allowed',
+          }}
+          disabled={!canClaim}
+          onClick={() => handleClaim(task.bonus)}
+        >
+          Claim
+        </button>
+      )}
+    </div>
+  );
+})}
+
                             </uni-view>
                         </uni-page-body>
                     </uni-page-wrapper>
