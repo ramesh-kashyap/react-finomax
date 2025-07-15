@@ -13,9 +13,9 @@ const { t } = useTranslation();
   const [claimedTasks, setClaimedTasks] = useState([]);
   const [vipLevel, setVipLevel] = useState(0);
   const [vipTask, setVipTasks] = useState([]);
-  const [vipTask, setVipTasks] = useState([]);
+  // const [vipTask, setVipTasks] = useState([]);
     useEffect(() => {
-    // fetchComBuRe();
+    fetchComBuRe();
     checkVip();
   }, []);
 
@@ -29,16 +29,16 @@ const { t } = useTranslation();
     console.error("Error fetching VIP level:", err);
   }
 };
-  //       const fetchComBuRe = async () => {
-  //   try {
-  //     const response = await Api.get("/vipterms");
-  //     const claimed = response.data?.claimed || [];
-  //     const claimedRewards = claimed.map(task => task.comm);
-  //     setClaimedTasks(claimedRewards);
-  //   } catch (err) {
-  //     console.error("Failed to fetch claimed tasks", err);
-  //   }
-  // }
+        const fetchComBuRe = async () => {
+    try {
+      const response = await Api.get("/vipterms");
+      const claimed = response.data?.claimed || [];
+      const claimedRewards = claimed.map(task => task.comm);
+      setClaimedTasks(claimedRewards);
+    } catch (err) {
+      console.error("Failed to fetch claimed tasks", err);
+    }
+  }
  
     const handleClaim = async (reward) => {
     try {
@@ -238,17 +238,29 @@ const { t } = useTranslation();
   return (
     <div key={index} style={cardStyle}>
       <div style={headingStyle}>
-        Community Growth Target: {task.team}
+        Team Size: {task.team} 
       </div>
       <div style={subTextStyle}>
-        Invite {task.teamSizeRequired} users in both Power and Support Teams who each deposit 100 USDT to unlock this reward.
+        You invited {task.activeReferrals}/{task.teamSizeRequired} valid users  and they deposit 100 into their Finomax account. You receive.{task.bonus}
       </div>
-      <div style={rewardStyle}>You receive a bonus of  {task.bonus} USDT</div>
+      <div style={rewardStyle}>Reward: {task.bonus} USDT</div>
       <div style={subTextStyle}>
-        {task.activeReferrals}/{task.teamSizeRequired} Members
+        {task.activeReferrals}/{task.teamSizeRequired}
       </div>
 
-      {isClaimed ? (
+      {!isUnlocked ? (
+        <button
+          style={{
+            ...buttonStyle,
+            backgroundColor: '#111',
+            color: '#888',
+            cursor: 'not-allowed',
+          }}
+          disabled
+        >
+          Locked (VIP {index + 2} required)
+        </button>
+      ) : isClaimed ? (
         <button
           style={{
             ...buttonStyle,

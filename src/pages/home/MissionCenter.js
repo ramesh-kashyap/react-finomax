@@ -12,13 +12,16 @@ const CheckUsers = () => {
     const [error, setError] = useState("");
     const [claimedTasks, setClaimedTasks] = useState([]);
     const [qualifiedTasks, setQualifiedTasks] = useState([]);
-    const [qualifiedTasks, setQualifiedTasks] = useState([]);
+    // const [qualifiedTasks, setQualifiedTasks] = useState([]);
     useEffect(() => {
         fetchClaimedTasks();
-        const interval = setInterval(() =>{
-            fetchClaimedTasks();
-        },1000);
-        return () => clearInterval(interval);
+        // const interval = setInterval(() =>{
+        //     fetchClaimedTasks();
+        // },1000);
+        // return () => clearInterval(interval);
+
+
+
         const interval = setInterval(() =>{
             fetchClaimedTasks();
         },1000);
@@ -48,15 +51,15 @@ const CheckUsers = () => {
 };
 
 
-    const handleClaim = async (bonus) => {
-  try {
-    const res = await Api.post('/claimRRB', { taskReward: bonus});  
-    toast.success("Rapid Rise Bonus claimed successfully!");
-    fetchClaimedTasks(); // refresh claim list
-  } catch (err) {
-    toast.error(err.response?.data?.message || "Claim failed");
-  }
-};
+//     const handleClaim = async (bonus) => {
+//   try {
+//     const res = await Api.post('/claimRRB', { taskReward: bonus});  
+//     toast.success("Rapid Rise Bonus claimed successfully!");
+//     fetchClaimedTasks(); // refresh claim list
+//   } catch (err) {
+//     toast.error(err.response?.data?.message || "Claim failed");
+//   }
+// };
     const handleClaim = async (bonus) => {
   try {
     const res = await Api.post('/claimRRB', { taskReward: bonus});  
