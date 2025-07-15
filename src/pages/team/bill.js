@@ -115,59 +115,54 @@ const { t } = useTranslation();
                                     </uni-view>
                                 </uni-view>
                               {Contract.map((item, index) => (
-                                <div style={cardStyle2}>
+                               <div style={cardStyle2}>
                               {/* Top Row */}
-                              <div style={topRowStyle}>
-                              <span><span>{new Date(item.created_at).toLocaleString()}</span>
-</span>
-                              <span>
-                                 <span style={greenDotStyle}></span>{item.c_status === -1 ? 'Completed' : item.c_status === 1 ? 'Completed' : 'Unknown'}
-                              </span>
-                              </div>
- 
-                              <div style={dividerStyle2}></div>
- 
+                            
+
+
                               {/* Detail Grid */}
-                              <div style={gridStyle}>
-                              <div>
-                                 <div style={labelStyle2}>{t('Trading Pair')}</div>
-                                 <div style={valueStyle2}>USDT-{item.c_name.toUpperCase()}</div>
-                              </div>
-                              <div>
-                                 <div style={labelStyle2}>{t('Position')}</div>
-                                 <div style={valueStyle2}>{item.trade}</div>
-                              </div>
-                              <div>
-                                 <div style={labelStyle2}>{t('Amount Of Income')}</div>
-                                 <div style={incomeStyle}>${item.profit}</div>
-                              </div>
-                              </div>
+                             <div style={gridStyle}>
+                                 <div>
+                                    <div style={labelStyle2}>{t('Position')}</div>
+                                    <div style={valueStyle2}>{item.trade}</div>
+                                 </div>
+                                
+                                 <div>
+                                    <div style={labelStyle2}>{t('Profit')}</div>
+                                    <div style={valueStyle2}>${item.profit}</div>
+                                 </div>
+                                 </div>
+                                    <div style={gridStyle}>
+                                 <div>
+                                    <div style={labelStyle2}>{t('Enrty Price')}</div>
+                                    <div style={valueStyle2}>{item.c_buy}</div>
+                                 </div>
+                                
+                                 <div>
+                                    <div style={{ ...labelStyle2, marginLeft: 23 }}>{t('Exit Price')}</div>
+                                    <div style={valueStyle2}>{item.c_sell}</div>
+                                 </div>
+                                 </div>
+                                    <div style={gridStyle}>
+                                 <div>
+                                    <div style={labelStyle2}>{t('Symbol')}</div>
+                                    <div style={valueStyle2}>USDT-{item.c_name.toUpperCase()}</div>
+                                 </div>
+                                
+                                 <div>
+<div style={{ ...labelStyle2, marginLeft: 54 }}>
+  {t('Completion Time')}
+</div>                                    <div style={valueStyle2}>   {new Date(item.created_at).toLocaleString('en-IN', {
+          dateStyle: 'medium',
+          timeStyle: 'short'
+        })}</div>
+                                 </div>
+                                 </div>
                            </div>
                            ))
                                         }
  
-                                {/* {Contract.map((item, index) => (
-                                                <uni-view data-v-248ca5b8="" class="item" >
-                                                    <uni-view data-v-248ca5b8="" class="first">
-                                                        <uni-view data-v-248ca5b8="" class="left">
-                                                         Buy : {item.c_buy}
-                                                        </uni-view>
-                                                        <uni-view data-v-248ca5b8=""
-                                                            class="right" style={{ color: "#fff",fontWeight:"900"}}>
-                                                            Sell :{item.c_sell}
-                                                        </uni-view>
-                                                    </uni-view>
- 
-                                                    <uni-view data-v-248ca5b8="" class="layer">
-                                                        <uni-view data-v-248ca5b8="" class="title">Profit</uni-view>
-                                                        <uni-view data-v-248ca5b8="" class="value" style={{ color: "#51fbc1",fontWeight:"900"}}>
-                                                            {item.profit || item.c_sell || '—'}
-                                                        </uni-view>
-                                                    </uni-view>
-                                                </uni-view>
-                                               
-                                            ))
-                                        } */}
+                              
                             </uni-view>
                         </uni-page-body>
                     </uni-page-wrapper>
