@@ -243,7 +243,7 @@ const { t } = useTranslation();
         Community Growth Target: {task.team}
       </div>
       <div style={subTextStyle}>
-        Invite {task.teamSizeRequired} users in both Power and Vicker Teams who each deposit 100 USDT to unlock this reward.
+        Invite {task.teamSizeRequired} users in both Power and Support Teams who each deposit 100 USDT to unlock this reward.
       </div>
       <div style={rewardStyle}>You receive a bonus of  {task.bonus} USDT</div>
       <div style={subTextStyle}>
