@@ -39,7 +39,7 @@ const CheckUsers = () => {
     try {
         const response = await Api.get("/checkClaimed");
         const claimed = response.data;
-        // console.log(response.data);
+        console.log(response.data);
          const results = response.data?.results || [];
     setQualifiedTasks(results);
     } catch (err) {
