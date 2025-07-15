@@ -23,7 +23,6 @@ const UserInfo = () => {
       const response = await Api.get("/user");
       if (response.data) {
         const userData = response.data;
-
         setName(userData.name || "");
         setUsername(userData.username || "");
         setSponsor(userData.email || "");
@@ -36,7 +35,7 @@ const UserInfo = () => {
   const handleSave = async () => {
     try {
       const response = await Api.post("/changedetails", {
-        name,
+        name: name,
       });
       if (response.data.success) {
         setSuccess(response.data.message);
@@ -193,7 +192,7 @@ const UserInfo = () => {
             <input
               type="text"
               value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              // onChange={(e) => setUsername(e.target.value)}
               style={inputStyle}
             />
           </div>
@@ -203,7 +202,7 @@ const UserInfo = () => {
           <div style={labelStyle}>{t('Email ID')}</div>
           <div style={rowStyle}>
             <input
-              type="text"
+              type="email"
               value={sponsor}
               onChange={(e) => setSponsor(e.target.value)}
               style={inputStyle}
