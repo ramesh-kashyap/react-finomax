@@ -117,7 +117,7 @@ const MyIncomeCard = () => {
   <div style={sectionStyle}>
     <div>
       <div style={labelStyle}>{t('Total Income')}</div>
-      <div style={valueStyle}>${incomes.totalIncome ? incomes.totalIncome : 0}.00</div>
+  {incomes?.totalIncome !== undefined ? `$${incomes.totalIncome}` : 'Loading...'}
     </div>
     <div>
       <div style={labelStyle}>{t("Total Deposit")}</div>
