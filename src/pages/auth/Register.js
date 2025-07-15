@@ -198,7 +198,7 @@ const Register = () => {
                 </div>
                 <div style={textWrapperStyle}>
                   <div style={helloStyle}>Hello,</div>
-                  <div style={welcomeStyle}>Welcome zyloq.app</div>
+                  <div style={welcomeStyle}>Welcome Finomax</div>
                 </div>
               </div>
 

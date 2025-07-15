@@ -149,12 +149,12 @@ const Login = () => {
                                             data-v-06ae08d2="" class="right">
                                                <Link target="_blank" to="https://t.me/AidenSabestin ">
                                             <uni-view data-v-06ae08d2="" class="notice"><img
-                                               data-v-06ae08d2="" src="/static/img/icons-support.png" alt=""
+                                               data-v-06ae08d2="" src="/static/img/supprt.png" alt=""
                                                style={{ width: '28px', height: '28px', }} /></uni-view> 
                                                </Link>
                                             <Link   target="_blank"  to="https://t.me/Finomax">
                                                <uni-view data-v-06ae08d2="" class="notice"><img
-                                                  data-v-06ae08d2="" src="/static/img/icons8-telegram-100.png" alt="" style={{ width: '28px', height: '28px', }} /><uni-view
+                                                  data-v-06ae08d2="" src="/static/img/belliy.png" alt="" style={{ width: '28px', height: '28px', }} /><uni-view
                                                      data-v-06ae08d2=""
                                                      class=""></uni-view></uni-view>
                                             </Link>
@@ -172,7 +172,7 @@ const Login = () => {
                 </div>
                 <div style={textWrapperStyle}>
                   <div style={helloStyle}>Hello,</div>
-                  <div style={welcomeStyle}>Welcome zyloq.app</div>
+                  <div style={welcomeStyle}>Welcome Finomax</div>
                 </div>
               </div>
 
