@@ -34,7 +34,7 @@ const CheckUsers = () => {
     try {
         const response = await Api.get("/checkClaimed");
         const claimed = response.data;
-        // console.log(response.data);
+        console.log(response.data);
          const results = response.data?.results || [];
     setQualifiedTasks(results);
     } catch (err) {
@@ -165,8 +165,8 @@ const CheckUsers = () => {
   const currentPath = location.pathname;
 
  const tabs = [
-      { key: 'invitation', label: t('Invitation Task'), path: '/MissionCenter' },
-      { key: 'longterm', label: t('Long Term Mission'), path: '/longterm' },
+      { key: 'invitation', label: t('Rapid Rise Bonus'), path: '/MissionCenter' },
+      { key: 'longterm', label: t('Community Rewards'), path: '/longterm' },
     ];
 
   const wrapperStyle = {
@@ -255,7 +255,7 @@ const tasks = rawTasks.map((task) => {
                                             </Link>
                                         </uni-view>
                                         <uni-view data-v-35b9a113="" data-v-c62a6474="" class="uni-col uni-col-12" style={{ paddingLeft: '0px', paddingRight: '0px' }}>
-                                            <uni-view data-v-c62a6474="" class="page-title">{t('Mission Center')}</uni-view>
+                                            <uni-view data-v-c62a6474="" class="page-title">{t('Rapid Rise Bonus')}</uni-view>
                                         </uni-view>
                                         <uni-view data-v-35b9a113="" data-v-c62a6474="" class="uni-col uni-col-6" style={{ paddingLeft: '0px', paddingright: '0px' }}></uni-view>
                                     </uni-view>
