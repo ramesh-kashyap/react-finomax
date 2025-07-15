@@ -542,7 +542,7 @@ const vipRateRange = vipRateMap[vip] || '0';
 
 
                         <div style={wrapperStyle}>
-                           <div style={titleStyle}>{t('My Quantify')}</div>
+                           <div style={titleStyle}>{t('My Trade')}</div>
                            <button style={buttonStyle}>
                               <Link to="/bill" style={{ color: '#fff', textDecoration: 'none' }}>
                                  {t('Bill List')} <span style={arrowStyle}>›</span>
@@ -566,7 +566,7 @@ const vipRateRange = vipRateMap[vip] || '0';
                                 
                                  <div>
                                     <div style={labelStyle2}>{t('Profit')}</div>
-                                    <div style={valueStyle2}>${item.profit}</div>
+<div style={{ ...valueStyle2, color: 'green', marginBottom: 0 }}>${item.profit}</div>
                                  </div>
                                  </div>
                                     <div style={gridStyle}>
