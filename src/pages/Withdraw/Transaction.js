@@ -29,10 +29,9 @@ const Transaction = () => {
         try {
             const typeParam = selectedType !== 'All' ? selectedType : '';
             const monthParam = selectedMonth !== 'Time' ? selectedMonth : '';
-
             const response = await Api.get(`/getUserHistory?page=${pageNumber}&limit=${limit}&type=${typeParam}&month=${monthParam}`);
-
             if (response.data && response.data.success) {
+                console.log(response.data);
                 setTransactions(response.data.transactions);
                 setTotalPages(response.data.totalPages);
                 setPage(response.data.page);
