@@ -223,6 +223,10 @@ const Server = () => {
       alignItems: 'center',
    };
 
+
+
+   
+
    const labelStyle = {
       color: '#bbb',
    };
@@ -302,6 +306,7 @@ const Server = () => {
       fontSize: '15px',
       color: '#fff',
    };
+   
 
    const incomeStyle = {
       fontWeight: 'bold',
@@ -418,6 +423,12 @@ const Server = () => {
 const vipRateRange = vipRateMap[vip] || '0';
   if (!pair) return null;
 
+
+
+
+
+
+  
    return (
       <div class="uni-body pages-server-server">
           {success && <Toast message={success} onClose={() => setSuccess('')} />}
@@ -452,7 +463,7 @@ const vipRateRange = vipRateMap[vip] || '0';
                            </uni-view>
                         </uni-view>
 
-ç
+
                         <div style={cardStyle}>
       <div style={rowStyle}>
         <div>
@@ -464,7 +475,7 @@ const vipRateRange = vipRateMap[vip] || '0';
           <span style={valueStyle}>$ {availbal ? availbal : "0.00"}</span>
         </div>
         <div>
-          <span style={labelStyle}>{t('Total Incomes')}</span><br />
+          <span style={labelStyle}>{t('Total Income')}</span><br />
           <span style={valueStyle}>${incomes.totalIncome ? incomes.totalIncome : 0}</span>
         </div>
       </div>
@@ -543,29 +554,45 @@ const vipRateRange = vipRateMap[vip] || '0';
                         {Contract.map((item, index) => (
                            <div style={cardStyle2}>
                               {/* Top Row */}
-                              <div style={topRowStyle}>
-                                 <span><span>{new Date(item.created_at).toLocaleString()}</span>
-                                 </span>
-                                 <span>
-                                    <span style={greenDotStyle}></span>{item.c_status === -1 ? 'Completed' : item.c_status === 1 ? 'Completed' : 'Unknown'}
-                                 </span>
-                              </div>
+                            
 
-                              <div style={dividerStyle2}></div>
 
                               {/* Detail Grid */}
                              <div style={gridStyle}>
                                  <div>
-                                    <div style={labelStyle2}>{t('Trading Pair')}</div>
-                                    <div style={valueStyle2}>USDT-{item.c_name.toUpperCase()}</div>
-                                 </div>
-                                 <div>
                                     <div style={labelStyle2}>{t('Position')}</div>
                                     <div style={valueStyle2}>{item.trade}</div>
                                  </div>
+                                
                                  <div>
-                                    <div style={labelStyle2}>{t('Amount Of Income')}</div>
-                                    <div style={incomeStyle}>${item.profit}</div>
+                                    <div style={labelStyle2}>{t('Profit')}</div>
+                                    <div style={valueStyle2}>${item.profit}</div>
+                                 </div>
+                                 </div>
+                                    <div style={gridStyle}>
+                                 <div>
+                                    <div style={labelStyle2}>{t('Enrty Price')}</div>
+                                    <div style={valueStyle2}>{item.c_buy}</div>
+                                 </div>
+                                
+                                 <div>
+                                    <div style={{ ...labelStyle2, marginLeft: 23 }}>{t('Exit Price')}</div>
+                                    <div style={valueStyle2}>{item.c_sell}</div>
+                                 </div>
+                                 </div>
+                                    <div style={gridStyle}>
+                                 <div>
+                                    <div style={labelStyle2}>{t('Symbol')}</div>
+                                    <div style={valueStyle2}>USDT-{item.c_name.toUpperCase()}</div>
+                                 </div>
+                                
+                                 <div>
+<div style={{ ...labelStyle2, marginLeft: 54 }}>
+  {t('Completion Time')}
+</div>                                    <div style={valueStyle2}>   {new Date(item.created_at).toLocaleString('en-IN', {
+          dateStyle: 'medium',
+          timeStyle: 'short'
+        })}</div>
                                  </div>
                                  </div>
                            </div>
