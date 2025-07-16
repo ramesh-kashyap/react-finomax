@@ -18,6 +18,8 @@ const Server = () => {
    const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
    const [Contract, setContract] = useState([]);
     const [incomes, setIncomes] = useState("");
+    const [deposit, setDeposit] = useState("");
+    const [withdraw, setWithdraw] = useState("");
    const [error, setError] = useState("");
     const [success, setSuccess] = useState('');
    
@@ -117,6 +119,7 @@ const Server = () => {
       fetchvip();
       fetchcontract();
       IncomeInfo();
+      DepositInfo();
    }, [])
    const handleBuyClick = async (slideData) => {
       try {
@@ -154,13 +157,31 @@ const Server = () => {
       try {
          const response = await Api.get("/incomeInfo");
          if (response.data) {
-            console.log(response.data);
+            // console.log(response.data);
             setIncomes(response.data.data);
          }
       } catch (error) {
          console.error(error);
          setError(error);
       }
+   }
+
+       const DepositInfo = async () => {
+      try {
+         const response = await Api.get("/depositInfo");
+         if (response.data.success) {
+      const userPackage = response.data.data.package;
+      const withdraw = response.data.data.withdraw;
+      // console.log("User package:", userPackage, withdraw);
+      setWithdraw(withdraw);
+      setDeposit(userPackage); // uncomment this to store it in state
+    } else {
+      console.error("Server error:", response.data.message);
+    }
+      } catch (error) {
+    console.error("API error:", error);
+    setError(error);
+  }
    }
 
    const fetchvip = async () => {
@@ -484,8 +505,8 @@ const vipRateRange = vipRateMap[vip] || '0';
 
       <div style={rowStyle}>
         <div>
-          <span style={labelStyle}>{t("Today's Earnings")}</span><br />
-          <span style={{ ...valueStyle, color: '#00ff99' }}>${incomes.todayTotalIncome ? incomes.todayTotalIncome : 0}</span>
+          <span style={labelStyle}>{t("Total Deposit")}</span><br />
+          <span style={{ ...valueStyle, color: '#00ff99' }}>${deposit ? deposit : 0}</span>
         </div>
         <div>
           <span style={labelStyle}>{t('Quantify Income')}</span><br />
@@ -531,7 +552,7 @@ const vipRateRange = vipRateMap[vip] || '0';
                               <div style={infoRowStyle}>
                               <div>
                                  <div>{t('Transaction Amount')}</div>
-                                 <div style={infoValueStyle}>{availbal ? availbal : "0.00"} USDT</div>
+                                 <div style={infoValueStyle}>{deposit ? deposit : 0} USDT</div>
                               </div>
                               <div style={{ textAlign: 'right' }}>
                                  <div>{t('Rate Of Return')}</div>
