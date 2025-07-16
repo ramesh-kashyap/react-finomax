@@ -23,12 +23,32 @@ const [vickerLeg, setVickerLeg] = useState('');
   const [error, setError] = useState("");
   const [deposit, setDeposit] = useState("");
        const [withdraw, setWithdraw] = useState("");
+  const [deposit, setDeposit] = useState("");
+       const [withdraw, setWithdraw] = useState("");
   useEffect(() => {
     fetchteam();
     IncomeInfo();
     DepositInfo();
+    DepositInfo();
   }, []);
 
+      const DepositInfo = async () => {
+      try {
+         const response = await Api.get("/depositInfo");
+         if (response.data.success) {
+      const userPackage = response.data.data.package;
+      const withdraw = response.data.data.withdraw;
+      // console.log("User package:", userPackage, withdraw);
+      setWithdraw(withdraw);
+      setDeposit(userPackage); // uncomment this to store it in state
+    } else {
+      console.error("Server error:", response.data.message);
+    }
+      } catch (error) {
+    console.error("API error:", error);
+    setError(error);
+  }
+   }
       const DepositInfo = async () => {
       try {
          const response = await Api.get("/depositInfo");
@@ -461,7 +481,7 @@ const tabData = {
                   </div>
                   <div style={colStyle}>
                     <div style={labelStyle}>{t("Total Deposit")}</div>
-                    <div style={valueStyle}>${deposit ? deposit : 0}.00</div>
+                    <div style={valueStyle}>${deposit ? deposit : 0}</div>
                   </div>
                 </div>
 
