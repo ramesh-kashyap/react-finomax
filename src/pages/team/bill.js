@@ -129,7 +129,7 @@ const { t } = useTranslation();
                                 
                                  <div>
                                     <div style={labelStyle2}>{t('Profit')}</div>
-                                    <div style={valueStyle2}>${item.profit}</div>
+<div style={{ ...valueStyle2, color: 'green', marginBottom: 0 }}>${item.profit}</div>
                                  </div>
                                  </div>
                                     <div style={gridStyle}>
