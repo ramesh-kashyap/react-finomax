@@ -12,11 +12,29 @@ const Assets = () => {
     const [error, setError] = useState("");
     const [balance, setBalance] = useState(null);
     const { t } = useTranslation();
+     const [deposit, setDeposit] = useState("");
     useEffect(() => {
         fetchUsers();
         withavail();
+        DepositInfo();
     }, []);
 
+      const DepositInfo = async () => {
+      try {
+         const response = await Api.get("/depositInfo");
+         if (response.data.success) {
+      const userPackage = response.data.data.package;
+      console.log("User package:", userPackage);
+
+      setDeposit(userPackage); // uncomment this to store it in state
+    } else {
+      console.error("Server error:", response.data.message);
+    }
+      } catch (error) {
+    console.error("API error:", error);
+    setError(error);
+  }
+   }
     const fetchUsers = async () => {
         try {
             const response = await Api.get("/getUserHistory");

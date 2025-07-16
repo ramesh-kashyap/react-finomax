@@ -21,12 +21,31 @@ const [vickerLeg, setVickerLeg] = useState('');
   const [incomes, setIncomes] = useState([]);
   const [income, setIncome] = useState([]);
   const [error, setError] = useState("");
+  const [deposit, setDeposit] = useState("");
+       const [withdraw, setWithdraw] = useState("");
   useEffect(() => {
     fetchteam();
     IncomeInfo();
+    DepositInfo();
   }, []);
 
-
+      const DepositInfo = async () => {
+      try {
+         const response = await Api.get("/depositInfo");
+         if (response.data.success) {
+      const userPackage = response.data.data.package;
+      const withdraw = response.data.data.withdraw;
+      // console.log("User package:", userPackage, withdraw);
+      setWithdraw(withdraw);
+      setDeposit(userPackage); // uncomment this to store it in state
+    } else {
+      console.error("Server error:", response.data.message);
+    }
+      } catch (error) {
+    console.error("API error:", error);
+    setError(error);
+  }
+   }
   const fetchteam = async () => {
     try {
       const response = await Api.get('/team');
@@ -441,8 +460,8 @@ const tabData = {
                     <div style={valueStyle}>${incomes.totalIncome ? incomes.totalIncome : 0}</div>
                   </div>
                   <div style={colStyle}>
-                    <div style={labelStyle}>{t("Today's Earnings")}</div>
-                    <div style={valueStyle}>${incomes.todayTotalIncome ? incomes.todayTotalIncome : 0}</div>
+                    <div style={labelStyle}>{t("Total Deposit")}</div>
+                    <div style={valueStyle}>${deposit ? deposit : 0}</div>
                   </div>
                 </div>
 

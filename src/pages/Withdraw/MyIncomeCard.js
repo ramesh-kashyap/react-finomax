@@ -7,12 +7,31 @@ const MyIncomeCard = () => {
     const navigate = useNavigate();
     const [error, setError] = useState("");
     const [incomes, setIncomes] = useState("");
+     const [deposit, setDeposit] = useState("");
+     const [withdraw, setWithdraw] = useState("");
     const { t } = useTranslation();
      useEffect(() => {
             IncomeInfo();
+            DepositInfo();
         }, []);
 
-
+           const DepositInfo = async () => {
+      try {
+         const response = await Api.get("/depositInfo");
+         if (response.data.success) {
+      const userPackage = response.data.data.package;
+      const withdraw = response.data.data.withdraw;
+      // console.log("User package:", userPackage, withdraw);
+      setWithdraw(withdraw);
+      setDeposit(userPackage); // uncomment this to store it in state
+    } else {
+      console.error("Server error:", response.data.message);
+    }
+      } catch (error) {
+    console.error("API error:", error);
+    setError(error);
+  }
+   }
            const IncomeInfo = async () => {
           try {
              const response = await Api.get("/incomeInfo");
@@ -81,19 +100,19 @@ const MyIncomeCard = () => {
       <div style={valueStyle}>${incomes.totalIncome ? incomes.totalIncome : 0}</div>
     </div>
     <div>
-      <div style={labelStyle}>{t("Today's Earnings")}</div>
-      <div style={valueStyle}>${incomes.todayTotalIncome ? incomes.todayTotalIncome : 0}</div>
+      <div style={labelStyle}>{t("Total Deposit")}</div>
+      <div style={valueStyle}>${deposit ? deposit : 0}</div>
     </div>
   </div>
 
   <div style={sectionStyle}>
     <div>
-      <div style={labelStyle}>{t('Quantify Income')}</div>
-      <div style={valueStyle}>${incomes.tradingIncome ? incomes.tradingIncome : 0}</div>
+      <div style={labelStyle}>{t('Capping Income')}</div>
+      <div style={valueStyle}>${incomes.cappingIncome ? incomes.cappingIncome : 0}</div>
     </div>
     <div>
-      <div style={labelStyle}>{t("Today's Quantify Income")}</div>
-      <div style={valueStyle}>${incomes.todayTradingIncome ? incomes.todayTradingIncome : 0}</div>
+      <div style={labelStyle}>{t("Total Withdraw")}</div>
+      <div style={valueStyle}>${withdraw ? withdraw : 0}</div>
     </div>
   </div>
 
