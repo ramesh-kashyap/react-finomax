@@ -481,7 +481,7 @@ const tabData = {
                   </div>
                   <div style={colStyle}>
                     <div style={labelStyle}>{t("Total Deposit")}</div>
-                    <div style={valueStyle}>${deposit ? deposit : 0}.00</div>
+                    <div style={valueStyle}>${deposit ? deposit : 0}</div>
                   </div>
                 </div>
 
