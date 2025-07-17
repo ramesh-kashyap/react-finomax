@@ -107,7 +107,7 @@ const MyIncomeCard = () => {
 
   <div style={sectionStyle}>
     <div>
-      <div style={labelStyle}>{t('Capping Income')}</div>
+      <div style={labelStyle}>{t('Toatl Capping')}</div>
       <div style={valueStyle}>${incomes.cappingIncome ? incomes.cappingIncome : 0}.00</div>
     </div>
     <div>

@@ -169,7 +169,8 @@ const Server = () => {
             setQualitys(response.data);
             const serverData = response.data;
             const updatedSlides = slides.map((slide) => {
-               const balanceOk = parseFloat(serverData.balance) >= parseFloat(slide.effectiveAmount);
+               // const balanceOk = parseFloat(serverData.balance) >= parseFloat(slide.effectiveAmount);
+               const balanceOk = parseFloat(serverData.deposit) >= parseFloat(slide.effectiveAmount);
                const directOk = parseInt(serverData.directmembers) >= parseInt(slide.TeamA);
                const teamB = parseInt(serverData.sponsor?.teamBCount || 0);
                const teamC = parseInt(serverData.sponsor?.teamCCount || 0);
@@ -336,7 +337,7 @@ const Server = () => {
                                     <uni-view data-v-0f43bbff="" class="level">
                                        {/* <img data-v-0f43bbff="" src="/static/img/TeamA.png" alt=""style={{filter: 'brightness(0.72) invert(0)'}} /> */}
                                        {t('Effective Amount')}</uni-view>
-                                    <uni-view data-v-0f43bbff="" class="rate">${servers.balance || 0}/ ${slides[currentSlideIndex]?.tradeAmount || "10%"}</uni-view>
+                                    <uni-view data-v-0f43bbff="" class="rate">${servers.deposit || 0}/ ${slides[currentSlideIndex]?.tradeAmount || "10%"}</uni-view>
                                  </uni-view>
                                  <uni-view data-v-0f43bbff="" class="layout">
                                     <uni-view data-v-0f43bbff="" class="level">

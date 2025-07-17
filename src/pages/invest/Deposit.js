@@ -6,6 +6,7 @@ import { QRCode } from 'react-qrcode-logo';
 
 import { FaRegCopy } from 'react-icons/fa';
 import { Toaster, toast } from 'react-hot-toast';
+import Toast from "../../components/Toast";
 import DepositInfo from './DepositInfo';
 import { useTranslation } from 'react-i18next';
 
@@ -20,7 +21,12 @@ const Deposit = () => {
   const [loading, setLoading] = useState(false);
   const [deposit, setDeposit] = useState("");
   const [vip, setVip] = useState("");
+  const [amount, setAmount] = useState(""); 
   const [selected, setSelected] = useState('bep20'); // default bep20
+  const [error, setError] = useState("");
+  const [qrCodeData, setQrCodeData] = useState('');
+  const [showScanner, setShowScanner] = useState(false);
+  // const [method, setMethod] = useState("");
   useEffect(() => {
     fetchwallet(selected);
     fetchvip();
@@ -36,7 +42,6 @@ const Deposit = () => {
       setDeposit(userPackage);
          }
       const response_vip = await Api.get("/get_vip");
-
       if (response_vip.data.success) {
         const vipValue = response_vip.data.vip;
         setVip(vipValue);
@@ -56,6 +61,22 @@ const Deposit = () => {
                 5: 25000,
                 6: 100000,
             };
+
+const handleAmountChange = (e) => {
+  const value = e.target.value;
+  setAmount(value);
+  // const numericValue = parseFloat(value);
+  // const previousDeposit = parseFloat(deposit) || 0;
+  // const vipLimit = vipLimits[vip] || 0;
+  // const total = numericValue + previousDeposit;
+  // if (total > vipLimit) {
+  //   const maxAllowed = vipLimit - previousDeposit;
+  //   setError(`Your VIP allows ${vipLimit}.already deposited ${previousDeposit}, can enter up to ${maxAllowed}.`);
+  // } else {
+  //   setError("");
+  // }
+};
+
   const fetchwallet = async () => {
     try {
       setLoading(true);
@@ -74,6 +95,35 @@ const Deposit = () => {
     }
   };
 
+  const confirmDeposit = async () => {  
+    const numericAmount = parseFloat(amount);
+  const vipLimit = vipLimits[vip] || 0;
+  const previousDeposit = parseFloat(deposit) || 0;
+  const total = numericAmount + previousDeposit;
+
+  const maxAllowed = vipLimit - previousDeposit;
+
+  if (total > vipLimit) {
+    toast.error(`Deposit limit exceeded for  ${vipLimit}. Max allowed: ${maxAllowed} USDT`);
+    return;
+  } else {
+    setError("");
+  }  
+    try {
+      setLoading(true);
+      const response = await Api.post(`/confirmDeposit`, { method: "USDT BEP20", amount });
+      if (response.data?.success) {
+        console.log("deposit successful", response.data);
+        setWalletAddress(response.data.walletAddress);
+        setQrCodeData(response.data.qr_code); // This is base64 image string
+        setShowScanner(true)
+      }
+    } catch (error) {
+      console.error("Something went wrong submitting the deposit:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
   const copyToClipboard = () => {
     navigator.clipboard.writeText(walletAddress)
       .then(() => {
@@ -108,51 +158,110 @@ const Deposit = () => {
                         <uni-view data-v-53c5f33f="" class="records"><img data-v-53c5f33f="" src="/static/img/records.png" alt="" style={{ width: '25px', marginTop: '5px', filter: 'brightness(6) invert(0)' }} /></uni-view>
 
                       </Link>                                    </uni-view></uni-view></uni-view>
+                      {!showScanner ? (
+                      <>
                       {/* deposit  form*/}
-                      {/* <uni-view data-v-53c5f33f="" class="content">
-                      <uni-view data-v-53c5f33f="" class="input-layer">
-                      <uni-view data-v-53c5f33f="" class="input-title">
-                      Wallet Type</uni-view>
-                      <uni-view style="display: flex; gap: 10px;">
-                      <uni-view data-v-53c5f33f="" class="item" style="background-color: rgb(30, 23, 23); padding: 8px 12px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; color: rgb(233, 218, 218); border: 1px solid rgb(81, 251, 193);">
-                      <img data-v-53c5f33f="" src="/static/img/USDT.png" alt="" style="margin-right: 8px; filter: brightness(5) invert(0);"/>TRC20</uni-view>
-                      <uni-view data-v-53c5f33f="" class="item" style="background-color: rgb(30, 23, 23); padding: 8px 12px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; color: rgb(233, 218, 218); border: 1px solid rgb(81, 251, 193);">
-                      <img data-v-53c5f33f="" src="/static/img/USDT.png" alt="" style="margin-right: 8px; filter: brightness(5) invert(0);"/>BEP20</uni-view>
-                      </uni-view>
-                      </uni-view>
-                      <uni-view data-v-53c5f33f="" class="input-layer" style="margin-top: 15px;">
-                      <uni-view data-v-53c5f33f="" class="input-title">Wallet Address
-                      <uni-view data-v-53c5f33f="" class="right">
-                      <img data-v-53c5f33f="" src="  /static/img/add.png" alt="" style="color: rgb(0, 0, 0); filter: brightness(6) invert(0);"/>Add New</uni-view></uni-view>
-                      <uni-view data-v-30449abe="" data-v-53c5f33f="" class="uni-easyinput" style="color: rgb(255, 255, 255);">
-                        <uni-view data-v-30449abe="" class="uni-easyinput__content is-input-border is-disabled " style="border-color: rgb(81, 251, 193); background-color: unset;">
-                          <uni-input data-v-30449abe="" class="uni-easyinput__content-input">
-                            <div class="uni-input-wrapper">
-                              <div class="uni-input-placeholder uni-easyinput__placeholder-class" data-v-30449abe="" data-v-53c5f33f=""> </div>
-                              <input disabled="" maxlength="140" step="" enterkeyhint="done" autocomplete="off" readonly="" type="" class="uni-input-input" value="" style="margin: 16px;"/></div>
-                              </uni-input>   </uni-view></uni-view></uni-view>
-                              <uni-view data-v-53c5f33f="" class="input-layer" style="margin-top: 15px;">
-                                <uni-view data-v-53c5f33f="" class="input-title">Amount</uni-view>
-                                <uni-view data-v-30449abe="" data-v-53c5f33f="" class="uni-easyinput" style="color: rgb(255, 255, 255);">
-                                  <uni-view data-v-30449abe="" class="uni-easyinput__content is-input-border " style="border-color: rgb(81, 251, 193); background-color: unset;">   
-                                    <uni-input data-v-30449abe="" class="uni-easyinput__content-input" style="padding-left: 10px;">
-                                      <div class="uni-input-wrapper">
-                                        <div class="uni-input-placeholder uni-easyinput__placeholder-class" data-v-30449abe="" data-v-53c5f33f=""></div>
-                                        <input type="number" placeholder="Please Enter Amount" class="uni-input-input" value=""/></div></uni-input>   </uni-view></uni-view>    </uni-view>
-                                        <uni-view data-v-53c5f33f="" class="input-layer">
-                                          <uni-view data-v-53c5f33f="" class="input-title">Verification Code</uni-view>
-                                          <uni-view data-v-30449abe="" data-v-53c5f33f="" class="uni-easyinput" style="color: rgb(255, 255, 255);">
-                                            <uni-view data-v-30449abe="" class="uni-easyinput__content is-input-border " style="border-color: rgb(81, 251, 193); background-color: unset;">
-                                              <uni-input data-v-30449abe="" class="uni-easyinput__content-input" style="padding-right: 10px; padding-left: 10px;">
-                                                <div class="uni-input-wrapper">
-                                                  <div class="uni-input-placeholder uni-easyinput__placeholder-class" data-v-30449abe="" data-v-53c5f33f=""></div>
-                                                  <input type="text" placeholder="Enter Verification Code" class="uni-input-input" value=""/></div>
-                                                  </uni-input><uni-view data-v-b918f992="" class="resend" style="color: rgb(255, 255, 255); cursor: pointer;">Send</uni-view></uni-view></uni-view></uni-view>
-                      <uni-view data-v-53c5f33f="" class="submit">Submit</uni-view></uni-view> */}
+                      <uni-view data-v-53c5f33f="" class="content">  
+
+  <uni-view data-v-53c5f33f="" class="input-layer" style={{ marginTop: "15px" }}>
+    <uni-view data-v-53c5f33f="" class="input-title">
+      Wallet Type
+      {/* <uni-view data-v-53c5f33f="" class="right">
+        <img
+          data-v-53c5f33f=""
+          src="/static/img/add.png"
+          alt=""
+          style={{ color: "rgb(0, 0, 0)", filter: "brightness(6) invert(0)" }}
+        />
+        Add New
+      </uni-view> */}
+    </uni-view>
+
+    <uni-view data-v-30449abe="" data-v-53c5f33f="" class="uni-easyinput" style={{ color: "rgb(255, 255, 255)" }}>
+      <uni-view
+        data-v-30449abe=""
+        class="uni-easyinput__content is-input-border is-disabled"
+        style={{ borderColor: "rgb(81, 251, 193)", backgroundColor: "unset" }}
+      >
+        <uni-input data-v-30449abe="" class="uni-easyinput__content-input">
+          <div class="uni-input-wrapper">
+            <div class="uni-input-placeholder uni-easyinput__placeholder-class" data-v-30449abe="" data-v-53c5f33f="">
+            </div>
+            <div style={{ position: 'relative', display: 'inline-block', margin: '16px' }}>
+  <img
+    src="/static/img/icon-Cash.png" // use actual path to your USDT icon
+    alt="USDT"
+    style={{
+      position: 'absolute',
+      left: '10px',
+      top: '50%',
+      transform: 'translateY(-50%)',
+      width: '20px',
+      height: '20px',
+      pointerEvents: 'none',
+    }}
+  />
+  <input
+    readOnly
+    autoComplete="off"
+    type="text"
+    name="method"
+    value="USDT BEP20"
+    className="uni-input-input"
+    style={{
+      paddingLeft: '40px',
+      height: '36px',
+    }}
+  />
+</div>
+
+          </div>
+        </uni-input>
+      </uni-view>
+    </uni-view>
+  </uni-view>
+
+  <uni-view data-v-53c5f33f="" class="input-layer" style={{ marginTop: "15px" }}>
+    <uni-view data-v-53c5f33f="" class="input-title">Amount</uni-view>
+
+    <uni-view
+      data-v-30449abe=""
+      data-v-53c5f33f=""
+      class="uni-easyinput"
+      style={{ color: "rgb(255, 255, 255)" }}
+    >
+      <uni-view
+        data-v-30449abe=""
+        class="uni-easyinput__content is-input-border"
+        style={{ borderColor: "rgb(81, 251, 193)", backgroundColor: "unset" }}
+      >
+        <uni-input data-v-30449abe="" class="uni-easyinput__content-input" style={{ paddingLeft: "10px" }}>
+          <div class="uni-input-wrapper">
+            <div class="uni-input-placeholder uni-easyinput__placeholder-class" data-v-30449abe="" data-v-53c5f33f="">
+            </div>
+            <input type="number"class="uni-input-input" value={amount} placeholder='Enter Amount' onChange={handleAmountChange} />
+            {/* {error && (
+              <div style={{ color: "red", marginTop: "5px" }}>
+                {error}
+              </div>
+            )} */}
+          </div>
+        </uni-input>
+      </uni-view>
+    </uni-view>
+  </uni-view>
+
+  <uni-view data-v-53c5f33f="" class="submit" onClick={confirmDeposit}>
+    Submit
+  </uni-view>
+                        </uni-view>
+                        </>
+) : (
+  <>
                       {/* deposit Scanner */}
-                <uni-view data-v-bec7c7ce="" class="recharge-box">
+                      <uni-view data-v-bec7c7ce="" class="recharge-box">
                   <uni-view data-v-bec7c7ce="" class="input-layer">
-                    <uni-view data-v-bec7c7ce="" class="input-title">{t('Select Deposit Type')}</uni-view>
+                    {/* <uni-view data-v-bec7c7ce="" class="input-title">{t('Select Deposit Type')}</uni-view>
                     <uni-view class="select-box" style={{ display: 'flex', gap: '10px' }}>
                      
 
@@ -192,7 +301,7 @@ const Deposit = () => {
                         TRC20
                       </uni-view>
 
-                    </uni-view>
+                    </uni-view> */}
                   </uni-view><uni-view data-v-bec7c7ce="" class="input-layer" style={{ marginTop: '20px' }}>
                     <uni-view data-v-bec7c7ce="" class="input-title">{t('Amount')}</uni-view>
                     <uni-view data-v-30449abe="" data-v-bec7c7ce="" class="uni-easyinput" style={{ color: 'rgb(255, 255, 255)' }}>
@@ -201,18 +310,9 @@ const Deposit = () => {
                           <div className="scanner-image-wrapper" >
                             {loading ? (
                               <img src="/static/img/loading.gif" alt="Loading..." style={{ width: '50px', height: '50px', marginLeft: 100 }} />
-                            ) : (
-                              <QRCode
-                                value={walletAddress}
-                                size={250}
-                                bgColor="#ffffff"
-                                fgColor="#000000"
-                                logoImage='fino-fav.png'
-                                logoOpacity="1"
-                                removeQrCodeBehindLogo="true"
-                                qrStyle="dots"
-                              />
-                            )}
+                            ) : qrCodeData ? (
+                              <img src={`data:image/png;base64,${qrCodeData}`} alt="USDT QR Code" style={{ maxWidth: '250px' }}/>                              
+                            ): null}
                           </div>
                         </div>
 
@@ -220,8 +320,9 @@ const Deposit = () => {
                       <uni-view data-v-30449abe="" class="uni-easyinput__content is-input-border " style={{ bordBEPolor: 'rgba(255, 255, 255, 0.2)', backgroundColor: 'unset', marginTop: '20px' }}>
                         <uni-input data-v-30449abe="" class="uni-easyinput__content-input" style={{ paddingLeft: '10px' }}>
                           <div class="uni-input-wrapper">
+                            {walletAddress && (
                             <div class="uni-input-placeholder uni-easyinput__placeholder-class" data-v-30449abe="" data-v-bec7c7ce="" style={{ color: '#ffffff' }}>{walletAddress}</div>
-
+                           )}
                           </div>
 
                         </uni-input>
@@ -232,11 +333,15 @@ const Deposit = () => {
                       </uni-view >
                     </uni-view>
                   </uni-view>
-                </uni-view>
-                
+                      </uni-view>
+                  </>
+)}
                 <DepositInfo/>
                 {/* <uni-view data-v-bec7c7ce="" class="submit">Submit</uni-view>   */}
-              </uni-view></uni-page-body></uni-page-wrapper></uni-page>
+              </uni-view>
+              </uni-page-body>
+              </uni-page-wrapper>
+              </uni-page>
 
       </uni-app>
     </div>
