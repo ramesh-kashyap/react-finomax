@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next';
 const UserProfileCard = () => {
 
   const navigate = useNavigate();
+  const [vipType, setVipType] = useState('');
   const [userDetails, setUserDetails] = useState(null);
   const [username, setUsername] = useState("");
   const [name, setName] = useState("");
@@ -111,6 +112,14 @@ const UserProfileCard = () => {
     fetchUserDetails();
   }, []);
 
+    const vipTypeMap = {
+    1: "Trainee",
+    2: "Skilled",
+    3: "Advance",
+    4: "Expert",
+    5: "Professional",
+    6: "Ultimate"
+  };
   const fetchUserDetails = async () => {
     try {
       const response = await Api.get("/user");
@@ -120,7 +129,9 @@ const UserProfileCard = () => {
     const response_vip = await Api.get("/get_vip");
     
     if (response_vip.data.success) {
-      setVip(response_vip.data.vip);
+      const newVip = response_vip.data.vip;
+  setVip(newVip);
+  setVipType(vipTypeMap[newVip] || "0")      
     }
 
     } catch (error) {
@@ -213,7 +224,7 @@ const UserProfileCard = () => {
         placeholder={t('Sponsor')}
       />
     ) : (
-      <span style={codeStyle}>VIP{vip}</span>
+      <span style={codeStyle}>{vipType}</span>
     )}
   </div>
 

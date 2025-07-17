@@ -168,8 +168,8 @@ const Dashboard = () => {
     answer: t('Finomax leverages real-time market data, machine learning, and automated trading bots to execute high-speed trades with minimal latency. Profits are shared with users through structured VIP plans.') 
   },
   { 
-    question: t('What licenses and legal registrations does Finomax have?'), 
-    answer: t('Finomax LTD is a fully registered and legally incorporated company in the United Kingdom.') 
+    question: t('What is Arbitrage ?'), 
+    answer: t('Buying a cryptocurrency at a lower price on one exchange and simultaneously selling it at a higher price on another exchange. The profit is made from the difference in prices') 
   },
 ];
    const [openIndex, setOpenIndex] = useState(null);

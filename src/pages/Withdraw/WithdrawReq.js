@@ -77,7 +77,7 @@ const WithdrawReq = () => {
       // Assuming you have a backend endpoint to process the withdrawal request
       if(amount<30)
       {
-        setSuccess('Minimum withdrawal amount is 30');
+        setSuccess('Minimum withdrawal amount is 25');
         return false;
       }
 
@@ -182,10 +182,11 @@ const WithdrawReq = () => {
       <uni-view data-v-53c5f33f="" class="balance-box"><uni-view data-v-53c5f33f="" translate="no" class="value">$ {availbal}</uni-view>
       <uni-view data-v-53c5f33f="" class="title">{t('Available Balance')}</uni-view></uni-view>
       <uni-view data-v-53c5f33f="" class="content">
-        <uni-view data-v-53c5f33f="" class="input-layer"><uni-view data-v-53c5f33f="" class="input-title">{t('Wallet Type')}</uni-view>
+        <uni-view data-v-53c5f33f="" class="input-layer">
+          {/* <uni-view data-v-53c5f33f="" class="input-title">{t('Wallet Type')}</uni-view> */}
       
 
-          <uni-view style={{ display: 'flex', gap: '10px' }}>
+          {/* <uni-view style={{ display: 'flex', gap: '10px' }}>
             <uni-view  data-v-53c5f33f="" 
               class="item"
               onClick={() => {
@@ -252,7 +253,7 @@ const WithdrawReq = () => {
               )}
               
             </uni-view>
-          </uni-view>
+          </uni-view> */}
 
 
 

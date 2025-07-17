@@ -36,18 +36,18 @@ const WithdrawalGuidelines = () => {
   <div style={headingStyle}>{t('Withdrawal Rules')}</div>
 
   <div style={itemStyle}>
-    {t('withdraw_rule_1')} <span style={greenText}>$30</span>.
+    {t('withdraw_rule_1')} <span style={greenText}>$25</span>.
   </div>
 
   <div style={itemStyle}>
     {t('withdraw_rule_2')} <span style={redText}>$5,000</span>.
   </div>
 
-  <div style={itemStyle}>{t('withdraw_rule_3')}</div>
+  {/* <div style={itemStyle}>{t('withdraw_rule_3')}</div> */}
   <div style={itemStyle}>{t('withdraw_rule_4')}</div>
   <div style={itemStyle}>{t('withdraw_rule_5')}</div>
-  <div style={itemStyle}>{t('withdraw_rule_6')}</div>
-  <div style={itemStyle}>7. <span style={{fontWeight:'800'}}> Withdrawal Fee </span>: <br/> BEP20 8% + <span style={redText}>$2</span> fixed <br/>TRC20  8%  +  <span style={redText}> $6 </span> fixed.</div>
+  {/* <div style={itemStyle}>{t('withdraw_rule_6')}</div> */}
+  <div style={itemStyle}>7. <span style={{fontWeight:'800'}}> Withdrawal Fee : 5% </span></div>
   <div style={itemStyle}>{t('withdraw_rule_8')}</div>
   <div style={itemStyle}>{t('withdraw_rule_9')}</div>
 </div>

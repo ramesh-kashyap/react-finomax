@@ -474,7 +474,7 @@ const vipRateRange = vipRateMap[vip] || '0';
                                  </Link>
                               </uni-view>
                               <uni-view data-v-35b9a113="" data-v-3dcfa33c="" class="uni-col uni-col-12" style={{ paddingLeft: '0px', paddingRight: '0px' }}>
-                                 <uni-view data-v-3dcfa33c="" class="page-title">{t('Quantify')}</uni-view>
+                                 <uni-view data-v-3dcfa33c="" class="page-title">{t('Trade')}</uni-view>
                               </uni-view>
                               <uni-view data-v-35b9a113="" data-v-3dcfa33c="" class="uni-col uni-col-6" style={{ paddingLeft: '0px', paddingRight: '0px' }}>
                                  <Link to="/bill">
@@ -492,7 +492,7 @@ const vipRateRange = vipRateMap[vip] || '0';
           <span style={valueStyle}>{vipType}</span>
         </div>
         <div>
-          <span style={labelStyle}>{t('Wallet Balance')}</span><br />
+          <span style={labelStyle}>{t('Income Balance')}</span><br />
           <span style={valueStyle}>$ {availbal ? availbal : "0.00"}.00</span>
         </div>
         <div>
@@ -509,7 +509,7 @@ const vipRateRange = vipRateMap[vip] || '0';
           <span style={{ ...valueStyle, color: '#00ff99' }}>${deposit ? deposit : 0}.00</span>
         </div>
         <div>
-          <span style={labelStyle}>{t('Quantify Income')}</span><br />
+          <span style={labelStyle}>{t('Trade Income')}</span><br />
           <span style={valueStyle}>${incomes.tradingIncome ? incomes.tradingIncome : 0}.00</span>
         </div>
         <div>
@@ -587,12 +587,12 @@ const vipRateRange = vipRateMap[vip] || '0';
                                 
                                  <div>
                                     <div style={labelStyle2}>{t('Profit')}</div>
-<div style={{ ...valueStyle2, color: 'green', marginBottom: 0 }}>${item.profit}</div>
+<div style={{ ...valueStyle2, color: 'rgb(33, 255,180)', marginBottom: 0 }}>${item.profit}</div>
                                  </div>
                                  </div>
                                     <div style={gridStyle}>
                                  <div>
-                                    <div style={labelStyle2}>{t('Enrty Price')}</div>
+                                    <div style={labelStyle2}>{t('Entry Price')}</div>
                                     <div style={valueStyle2}>{item.c_buy}</div>
                                  </div>
                                 

@@ -152,7 +152,7 @@ export default function Footer() {
                       lineHeight: 'normal',
                       marginTop: '3px',
                     }}>
-                    {t('Profile')} </div>
+                    {t('My')} </div>
                 </div>
               </Link>
             </div>

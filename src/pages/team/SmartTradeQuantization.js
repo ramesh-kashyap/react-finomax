@@ -239,7 +239,7 @@ const [countdown, setCountdown] = useState('');
     >
       <div
         style={{
-          background: 'rgb(194 146 43)',
+          background: 'rgb(33, 255, 180)',
           width: '70px',
           height: '70px',
           borderRadius: '50%',
@@ -271,7 +271,7 @@ const [countdown, setCountdown] = useState('');
       <button
         onClick={() => handleClose()}
         style={{
-          background: 'rgb(194 146 42)',
+          background: 'rgb(33, 255, 180)',
           border: 'none',
           padding: '0.75rem 2rem',
           borderRadius: '0.5rem',

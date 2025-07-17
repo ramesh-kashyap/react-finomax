@@ -41,10 +41,10 @@ const AddWallet = () => {
                                 </uni-view>
                                 <uni-view data-v-b918f992="" class="type-box">
 
-                                    <uni-view data-v-b918f992="" class="item" onClick={() => handleClick('Trc20')}>
+                                    {/* <uni-view data-v-b918f992="" class="item" onClick={() => handleClick('Trc20')}>
                                         <uni-view data-v-b918f992="" class="left"><img data-v-b918f992="" src="/static/img/USDT.png" alt="" style={{filter: 'brightness(6) invert(0)'}}/>TRC20</uni-view>
                                         <img data-v-b918f992="" src="/static/img/in.png" alt="" style={{filter: 'brightness(6) invert(0)'}} />
-                                    </uni-view>
+                                    </uni-view> */}
                                    <uni-view data-v-b918f992="" class="item"  onClick={() => handleClick('Bep20')}>
                                         <uni-view data-v-b918f992="" class="left"><img data-v-b918f992="" src="/static/img/USDT.png" alt="" style={{filter: 'brightness(6) invert(0)'}}/>BEP20</uni-view>
                                         <img data-v-b918f992="" src="/static/img/in.png" alt=""  style={{filter: 'brightness(6) invert(0)'}}/>

@@ -30,7 +30,7 @@ const Server = () => {
     effectiveAmount: "50",
     tradeAmount: "50",
     maxtradeAmount: "1000",
-    DailyTrade: "2",
+    DailyTrade: "3",
     TeamA: "0",
     TeamBC: "0",
     roi: "0.9% - 1.10%",
@@ -68,7 +68,7 @@ const Server = () => {
     effectiveAmount: "2001",
     tradeAmount: "2001",
     maxtradeAmount: "5000",
-    DailyTrade: "4",
+    DailyTrade: "3",
     TeamA: "10",
     TeamBC: "25",
     roi: "2.40% - 2.60%",
@@ -87,7 +87,7 @@ const Server = () => {
     effectiveAmount: "5001",
     tradeAmount: "5001",
     maxtradeAmount: "10000",
-    DailyTrade: "5",
+    DailyTrade: "3",
     TeamA: "20",
     TeamBC: "75",
     roi: "2.90% - 3.10%",
@@ -109,7 +109,7 @@ const Server = () => {
     effectiveAmount: "10001",
     tradeAmount: "10001",
     maxtradeAmount: "25000",
-    DailyTrade: "6",
+    DailyTrade: "3",
     TeamA: "25",
     TeamBC: "125",
     roi: "3.40% - 3.60%",
@@ -130,7 +130,7 @@ const Server = () => {
     effectiveAmount: "25000",
     tradeAmount: "25000",
     maxtradeAmount: "100000",
-    DailyTrade: "7",
+    DailyTrade: "3",
     TeamA: "30",
     TeamBC: "250",
     roi: "3.90% - 4.10%",
@@ -336,13 +336,13 @@ const Server = () => {
                                  <uni-view data-v-0f43bbff="" class="layout">
                                     <uni-view data-v-0f43bbff="" class="level">
                                        {/* <img data-v-0f43bbff="" src="/static/img/TeamA.png" alt=""style={{filter: 'brightness(0.72) invert(0)'}} /> */}
-                                       {t('Effective Amount')}</uni-view>
+                                       {t('Wallet Balance')}</uni-view>
                                     <uni-view data-v-0f43bbff="" class="rate">${servers.deposit || 0}/ ${slides[currentSlideIndex]?.tradeAmount || "10%"}</uni-view>
                                  </uni-view>
                                  <uni-view data-v-0f43bbff="" class="layout">
                                     <uni-view data-v-0f43bbff="" class="level">
                                        {/* <img data-v-0f43bbff="" src="/static/img/TeamBC.png" alt=""style={{filter: 'brightness(0.72) invert(0)'}} /> */}
-                                       {t('First Generation Valid Members')}</uni-view>
+                                       {t('First Layer Valid Members')}</uni-view>
                                     <uni-view data-v-0f43bbff="" class="rate">{servers.directmembers || 0}/{slides[currentSlideIndex]?.TeamA}</uni-view>
                                  </uni-view>
                                  <uni-view data-v-0f43bbff="" class="layout">
@@ -363,13 +363,13 @@ const Server = () => {
                                  <uni-view data-v-0f43bbff="" class="layout">
                                     <uni-view data-v-0f43bbff="" class="level">
                                        {/* <img data-v-0f43bbff="" src="/static/img/TeamA.png" alt=""style={{filter: 'brightness(0.72) invert(0)'}} /> */}
-                                       {t('Minimum Amount Trade')}</uni-view>
+                                       {t('Minimum Trade Wallet')}</uni-view>
                                     <uni-view data-v-0f43bbff="" class="rate">${slides[currentSlideIndex]?.tradeAmount || "10%"}</uni-view>
                                  </uni-view>
                                  <uni-view data-v-0f43bbff="" class="layout">
                                     <uni-view data-v-0f43bbff="" class="level">
                                        {/* <img data-v-0f43bbff="" src="/static/img/TeamBC.png" alt=""style={{filter: 'brightness(0.72) invert(0)'}} /> */}
-                                       {t('Maximum Amount Trade')}</uni-view>
+                                       {t('Maximum Trade Wallet')}</uni-view>
                                     <uni-view data-v-0f43bbff="" class="rate">${slides[currentSlideIndex]?.maxtradeAmount || "10%"}</uni-view>
                                  </uni-view>
                                  <uni-view data-v-0f43bbff="" class="layout">

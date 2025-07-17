@@ -134,7 +134,7 @@ const { t } = useTranslation();
                                  </div>
                                     <div style={gridStyle}>
                                  <div>
-                                    <div style={labelStyle2}>{t('Enrty Price')}</div>
+                                    <div style={labelStyle2}>{t('Entry Price')}</div>
                                     <div style={valueStyle2}>{item.c_buy}</div>
                                  </div>
                                 
