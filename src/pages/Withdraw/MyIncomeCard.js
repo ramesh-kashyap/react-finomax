@@ -117,22 +117,22 @@ const MyIncomeCard = () => {
   <div style={sectionStyle}>
     <div>
       <div style={labelStyle}>{t('Total Income')}</div>
-  {incomes?.totalIncome !== undefined ? `$${incomes.totalIncome}` : 'Loading...'}
+      <div style={valueStyle}>${incomes.totalIncome ? incomes.totalIncome : 0}.00</div>
     </div>
     <div>
       <div style={labelStyle}>{t("Total Deposit")}</div>
-      <div style={valueStyle}>${deposit ? deposit : 0}</div>
+      <div style={valueStyle}>${deposit ? deposit : 0}.00</div>
     </div>
   </div>
 
   <div style={sectionStyle}>
     <div>
       <div style={labelStyle}>{t('Capping Income')}</div>
-      <div style={valueStyle}>${incomes.cappingIncome ? incomes.cappingIncome : 0}</div>
+      <div style={valueStyle}>${incomes.cappingIncome ? incomes.cappingIncome : 0}.00</div>
     </div>
     <div>
       <div style={labelStyle}>{t("Total Withdraw")}</div>
-      <div style={valueStyle}>${withdraw ? withdraw : 0}</div>
+      <div style={valueStyle}>${withdraw ? withdraw : 0}.00</div>
     </div>
   </div>
 
