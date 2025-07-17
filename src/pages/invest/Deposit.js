@@ -18,10 +18,44 @@ const Deposit = () => {
   const [walletAddress, setWalletAddress] = useState('');
   const [scanner, setScanner] = useState('');
   const [loading, setLoading] = useState(false);
+  const [deposit, setDeposit] = useState("");
+  const [vip, setVip] = useState("");
   const [selected, setSelected] = useState('bep20'); // default bep20
   useEffect(() => {
     fetchwallet(selected);
+    fetchvip();
+
   }, [selected]);
+
+
+      const fetchvip = async () => {
+      try {
+         const response = await Api.get("/depositInfo");
+         if (response.data.success) {
+      const userPackage = response.data.data.package;
+      setDeposit(userPackage);
+         }
+      const response_vip = await Api.get("/get_vip");
+
+      if (response_vip.data.success) {
+        const vipValue = response_vip.data.vip;
+        setVip(vipValue);
+        // setVipType(vipTypeMap[vipValue] || "0");
+      }
+
+      } catch (error) {
+         console.error("Error fetching servers:", error);
+      }
+   };
+  const vipLimits = {
+                0: 1000,
+                1: 1000,
+                2: 2500,
+                3: 5000,
+                4: 10000,
+                5: 25000,
+                6: 100000,
+            };
   const fetchwallet = async () => {
     try {
       setLoading(true);
@@ -74,6 +108,48 @@ const Deposit = () => {
                         <uni-view data-v-53c5f33f="" class="records"><img data-v-53c5f33f="" src="/static/img/records.png" alt="" style={{ width: '25px', marginTop: '5px', filter: 'brightness(6) invert(0)' }} /></uni-view>
 
                       </Link>                                    </uni-view></uni-view></uni-view>
+                      {/* deposit  form*/}
+                      {/* <uni-view data-v-53c5f33f="" class="content">
+                      <uni-view data-v-53c5f33f="" class="input-layer">
+                      <uni-view data-v-53c5f33f="" class="input-title">
+                      Wallet Type</uni-view>
+                      <uni-view style="display: flex; gap: 10px;">
+                      <uni-view data-v-53c5f33f="" class="item" style="background-color: rgb(30, 23, 23); padding: 8px 12px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; color: rgb(233, 218, 218); border: 1px solid rgb(81, 251, 193);">
+                      <img data-v-53c5f33f="" src="/static/img/USDT.png" alt="" style="margin-right: 8px; filter: brightness(5) invert(0);"/>TRC20</uni-view>
+                      <uni-view data-v-53c5f33f="" class="item" style="background-color: rgb(30, 23, 23); padding: 8px 12px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; color: rgb(233, 218, 218); border: 1px solid rgb(81, 251, 193);">
+                      <img data-v-53c5f33f="" src="/static/img/USDT.png" alt="" style="margin-right: 8px; filter: brightness(5) invert(0);"/>BEP20</uni-view>
+                      </uni-view>
+                      </uni-view>
+                      <uni-view data-v-53c5f33f="" class="input-layer" style="margin-top: 15px;">
+                      <uni-view data-v-53c5f33f="" class="input-title">Wallet Address
+                      <uni-view data-v-53c5f33f="" class="right">
+                      <img data-v-53c5f33f="" src="  /static/img/add.png" alt="" style="color: rgb(0, 0, 0); filter: brightness(6) invert(0);"/>Add New</uni-view></uni-view>
+                      <uni-view data-v-30449abe="" data-v-53c5f33f="" class="uni-easyinput" style="color: rgb(255, 255, 255);">
+                        <uni-view data-v-30449abe="" class="uni-easyinput__content is-input-border is-disabled " style="border-color: rgb(81, 251, 193); background-color: unset;">
+                          <uni-input data-v-30449abe="" class="uni-easyinput__content-input">
+                            <div class="uni-input-wrapper">
+                              <div class="uni-input-placeholder uni-easyinput__placeholder-class" data-v-30449abe="" data-v-53c5f33f=""> </div>
+                              <input disabled="" maxlength="140" step="" enterkeyhint="done" autocomplete="off" readonly="" type="" class="uni-input-input" value="" style="margin: 16px;"/></div>
+                              </uni-input>   </uni-view></uni-view></uni-view>
+                              <uni-view data-v-53c5f33f="" class="input-layer" style="margin-top: 15px;">
+                                <uni-view data-v-53c5f33f="" class="input-title">Amount</uni-view>
+                                <uni-view data-v-30449abe="" data-v-53c5f33f="" class="uni-easyinput" style="color: rgb(255, 255, 255);">
+                                  <uni-view data-v-30449abe="" class="uni-easyinput__content is-input-border " style="border-color: rgb(81, 251, 193); background-color: unset;">   
+                                    <uni-input data-v-30449abe="" class="uni-easyinput__content-input" style="padding-left: 10px;">
+                                      <div class="uni-input-wrapper">
+                                        <div class="uni-input-placeholder uni-easyinput__placeholder-class" data-v-30449abe="" data-v-53c5f33f=""></div>
+                                        <input type="number" placeholder="Please Enter Amount" class="uni-input-input" value=""/></div></uni-input>   </uni-view></uni-view>    </uni-view>
+                                        <uni-view data-v-53c5f33f="" class="input-layer">
+                                          <uni-view data-v-53c5f33f="" class="input-title">Verification Code</uni-view>
+                                          <uni-view data-v-30449abe="" data-v-53c5f33f="" class="uni-easyinput" style="color: rgb(255, 255, 255);">
+                                            <uni-view data-v-30449abe="" class="uni-easyinput__content is-input-border " style="border-color: rgb(81, 251, 193); background-color: unset;">
+                                              <uni-input data-v-30449abe="" class="uni-easyinput__content-input" style="padding-right: 10px; padding-left: 10px;">
+                                                <div class="uni-input-wrapper">
+                                                  <div class="uni-input-placeholder uni-easyinput__placeholder-class" data-v-30449abe="" data-v-53c5f33f=""></div>
+                                                  <input type="text" placeholder="Enter Verification Code" class="uni-input-input" value=""/></div>
+                                                  </uni-input><uni-view data-v-b918f992="" class="resend" style="color: rgb(255, 255, 255); cursor: pointer;">Send</uni-view></uni-view></uni-view></uni-view>
+                      <uni-view data-v-53c5f33f="" class="submit">Submit</uni-view></uni-view> */}
+                      {/* deposit Scanner */}
                 <uni-view data-v-bec7c7ce="" class="recharge-box">
                   <uni-view data-v-bec7c7ce="" class="input-layer">
                     <uni-view data-v-bec7c7ce="" class="input-title">{t('Select Deposit Type')}</uni-view>
@@ -149,6 +225,7 @@ const Deposit = () => {
                           </div>
 
                         </uni-input>
+                        
                         <button onClick={copyToClipboard} className="text-xl text-[#ffffff]" style={{ width: "30px", border: "2px", background: "none", color: "#fff" }}>
                           <FaRegCopy />
                         </button>
@@ -156,6 +233,7 @@ const Deposit = () => {
                     </uni-view>
                   </uni-view>
                 </uni-view>
+                
                 <DepositInfo/>
                 {/* <uni-view data-v-bec7c7ce="" class="submit">Submit</uni-view>   */}
               </uni-view></uni-page-body></uni-page-wrapper></uni-page>

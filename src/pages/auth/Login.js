@@ -147,12 +147,12 @@ const Login = () => {
                                          
                                          <uni-view
                                             data-v-06ae08d2="" class="right">
-                                               <Link target="_blank" to="https://t.me/AidenSabestin ">
+                                               <Link target="" to="#">
                                             <uni-view data-v-06ae08d2="" class="notice"><img
                                                data-v-06ae08d2="" src="/static/img/supprt.png" alt=""
                                                style={{ width: '28px', height: '28px', }} /></uni-view> 
                                                </Link>
-                                            <Link   target="_blank"  to="https://t.me/Finomax">
+                                            <Link   target=""  to="#">
                                                <uni-view data-v-06ae08d2="" class="notice"><img
                                                   data-v-06ae08d2="" src="/static/img/belliy.png" alt="" style={{ width: '28px', height: '28px', }} /><uni-view
                                                      data-v-06ae08d2=""

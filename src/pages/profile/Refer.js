@@ -107,7 +107,7 @@ const Refer = () => {
   };
 
   const buttonStyle = {
-    background: 'linear-gradient(rgb(45, 204, 69), #4edb57)',
+    background: 'linear-gradient(#51fbc1, #51fbc1)',
     border: 'none',
     color: '#000',
     fontWeight: 'bold',
