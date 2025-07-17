@@ -457,11 +457,11 @@ const tabData = {
                 <div style={rowStyle}>
                   <div style={colStyle}>
                     <div style={labelStyle}>{t('Total Income')}</div>
-                    <div style={valueStyle}>${incomes.totalIncome ? incomes.totalIncome : 0}</div>
+                    <div style={valueStyle}>${incomes.totalIncome ? incomes.totalIncome : 0}.00</div>
                   </div>
                   <div style={colStyle}>
                     <div style={labelStyle}>{t("Total Deposit")}</div>
-                    <div style={valueStyle}>${deposit ? deposit : 0}</div>
+                    <div style={valueStyle}>${deposit ? deposit : 0}.00</div>
                   </div>
                 </div>
 
@@ -470,11 +470,11 @@ const tabData = {
                 <div style={rowStyle}>
                   <div style={colStyle}>
                     <div style={labelStyle}>{t('Team Income')}</div>
-                    <div style={valueStyle}>${incomes.teamIncome ? incomes.teamIncome : 0}</div>
+                    <div style={valueStyle}>${incomes.teamIncome ? incomes.teamIncome : 0}.00</div>
                   </div>
                   <div style={colStyle}>
                     <div style={labelStyle}>{t("Today's Team Income")}</div>
-                    <div style={valueStyle}>${incomes.todayTeamIncome ? incomes.todayTeamIncome : 0}</div>
+                    <div style={valueStyle}>${incomes.todayTeamIncome ? incomes.todayTeamIncome : 0}.00</div>
                   </div>
                 </div>
 

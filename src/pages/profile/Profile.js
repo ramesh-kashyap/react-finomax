@@ -174,7 +174,7 @@ const NodeDetails = () => {
                     </uni-view>
                   </uni-view>
                 </Link>
-              <Link to="/langauge" style={{ textDecorationLine: 'none' }}>
+              {/* <Link to="/langauge" style={{ textDecorationLine: 'none' }}>
                 <uni-view data-v-3dcfa33c="" class="invite-box">
                   <img data-v-3dcfa33c="" src="/static/img/lang.png" alt="" style={{filter:'none'}} />
                   <uni-view data-v-3dcfa33c="" class="invite">
@@ -182,7 +182,7 @@ const NodeDetails = () => {
                     <uni-view data-v-3dcfa33c="" class="text">{t('you can change own Language')}</uni-view>
                   </uni-view>
                 </uni-view> 
-                </Link>
+                </Link> */}
 
                 <Link to="/change-password" style={{ textDecorationLine: 'none' }}>
                   <uni-view data-v-3dcfa33c="" class="invite-box">
