@@ -12,7 +12,7 @@ const InviteCard = ({ code = '7YKY7D', qrUrl = '/static/img/qr.png' }) => {
  const [success, setSuccess] = useState('');
   
   const cardStyle = {
-    background: 'linear-gradient(rgb(56, 210, 66), #4edb57)',
+    background: 'linear-gradient(#51fbc1, #51fbc1)',
     borderRadius: '20px',
     padding: '24px 16px',
     // width: '300px',
