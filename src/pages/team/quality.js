@@ -319,7 +319,7 @@ const Server = () => {
 
    const labelStyle2 = {
       marginBottom: '4px',
-      fontSize: '13px'
+      fontSize: '13px',      
    };
 
    const valueStyle2 = {
@@ -586,7 +586,7 @@ const vipRateRange = vipRateMap[vip] || '0';
                                  </div>
                                 
                                  <div>
-                                    <div style={labelStyle2}>{t('Profit')}</div>
+                                    <div style={{labelStyle2 , marginLeft:"30px"}}>{t('Profit')}</div>
 <div style={{ ...valueStyle2, color: 'rgb(33, 255,180)', marginBottom: 0 }}>${item.profit}</div>
                                  </div>
                                  </div>
@@ -598,7 +598,7 @@ const vipRateRange = vipRateMap[vip] || '0';
                                 
                                  <div>
                                     <div style={{ ...labelStyle2, marginLeft: 23 }}>{t('Exit Price')}</div>
-                                    <div style={valueStyle2}>{item.c_sell}</div>
+                                    <div style={{valueStyle2}}>{item.c_sell}</div>
                                  </div>
                                  </div>
                                     <div style={gridStyle}>
