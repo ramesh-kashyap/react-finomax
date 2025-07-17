@@ -492,7 +492,7 @@ const vipRateRange = vipRateMap[vip] || '0';
           <span style={valueStyle}>{vipType}</span>
         </div>
         <div>
-          <span style={labelStyle}>{t('Wallet Balance')}</span><br />
+          <span style={labelStyle}>{t('Income Balance')}</span><br />
           <span style={valueStyle}>$ {availbal ? availbal : "0.00"}.00</span>
         </div>
         <div>
@@ -592,7 +592,7 @@ const vipRateRange = vipRateMap[vip] || '0';
                                  </div>
                                     <div style={gridStyle}>
                                  <div>
-                                    <div style={labelStyle2}>{t('Enrty Price')}</div>
+                                    <div style={labelStyle2}>{t(' Enter Price')}</div>
                                     <div style={valueStyle2}>{item.c_buy}</div>
                                  </div>
                                 

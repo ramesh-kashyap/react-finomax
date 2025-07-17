@@ -296,6 +296,7 @@ const slices = angles.map((item) => {
     color: '#aaa',
   };
 
+  
   const inviteCard = {
     // background: 'linear-gradient(135deg, rgb(25, 32, 32), rgb(27, 27, 30))', border: "1px solid rgb(83, 78, 78)",
     // borderRadius: '12px',
@@ -342,7 +343,7 @@ const slices = angles.map((item) => {
 const [activeTab, setActiveTab] = useState('Layer1');
 const [hoveredIndex, setHoveredIndex] = useState(null);
 
-const tabs = ['Layer1', 'Layer2', 'Layer3', 'Layer4', 'Layer5'];
+const tabs = ['Layer 1', 'Layer 2', 'Layer 3', 'Layer 4', 'Layer 5'];
 
 const tabData = {
   Layer1: {
@@ -376,6 +377,10 @@ const tabData = {
     teamIncome: `$${income?.data?.gen_team5Earning || 0}`,
   },
 };
+
+
+
+
 
 
   const containerStyle2 = {
@@ -593,7 +598,7 @@ const tabData = {
 
                 <div style={containerStyle2}>
                   {/* Tabs */}
-                  <div style={tabHeaderStyle}>
+                  <div style={tabHeaderStyle} >
                     {tabs.map((tab) => (
                       <div
                         key={tab}

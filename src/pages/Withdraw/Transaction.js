@@ -67,7 +67,7 @@ const Transaction = () => {
         navigate(-1); // 👈 Go back to the previous page in history
     };
 
-    const revenueOptions = ['All','Deposits','Withdrawal','Order Revenue','Over Rise Income','Rapid Rise Bonus','Community Building Reward','Monthly Fixed Income',];
+    const revenueOptions = ['All','Order Revenue','Rapid Rise Bonus','Over Rise Income','Community Building Reward','Monthly Fixed Income',];
     const monthOptions = ['Time','2025-12','2025-11','2025-10','2025-09','2025-08','2025-07', '2025-06'];
 
     const containerStyle = {

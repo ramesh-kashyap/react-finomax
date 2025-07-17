@@ -28,7 +28,7 @@ const { t } = useTranslation();
     };
 
     const sectionTitleStyle = {
-        color: '#ffca36',
+        color: 'rgb(81, 251, 193)',
         fontWeight: 'bold',
         fontSize: '16px',
         marginTop: '24px',
