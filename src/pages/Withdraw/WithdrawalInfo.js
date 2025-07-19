@@ -27,7 +27,7 @@ const WithdrawalGuidelines = () => {
     marginBottom: '8px',
   };
 
-  const greenText = { color: '#10b981', fontWeight: 'bold' }; // green
+  const greenText = { color: 'rgb(81, 251, 193)', fontWeight: 'bold' }; // green
   const redText = { color: '#ef4444', fontWeight: 'bold' };   // red
   const boldText = { fontWeight: 'bold' };
 
@@ -36,20 +36,20 @@ const WithdrawalGuidelines = () => {
   <div style={headingStyle}>{t('Withdrawal Rules')}</div>
 
   <div style={itemStyle}>
-    {t('withdraw_rule_1')} <span style={greenText}>$25</span>.
+    1. The minimum withdrawal amount is <span style={greenText}>$25</span>.
   </div>
 
   <div style={itemStyle}>
-    {t('withdraw_rule_2')} <span style={redText}>$5,000</span>.
+   2. The maximum withdrawal per day is <span style={greenText}>$5,000</span>.
   </div>
 
   {/* <div style={itemStyle}>{t('withdraw_rule_3')}</div> */}
-  <div style={itemStyle}>{t('withdraw_rule_4')}</div>
-  <div style={itemStyle}>{t('withdraw_rule_5')}</div>
+  <div style={itemStyle}>3. Users can make their first withdrawal after 72 hours</div>
+  <div style={itemStyle}>4. Standard Withdrawal Processing Time: Within 12- 48 Hours.</div>
   {/* <div style={itemStyle}>{t('withdraw_rule_6')}</div> */}
-  <div style={itemStyle}>7. <span style={{fontWeight:'800'}}> Withdrawal Fee : 5% </span></div>
-  <div style={itemStyle}>{t('withdraw_rule_8')}</div>
-  <div style={itemStyle}>{t('withdraw_rule_9')}</div>
+  <div style={itemStyle}>5. <span style={{fontWeight:'800'}}>Handling Charge : 5% </span></div>
+  <div style={itemStyle}>6. Wallet Address Change: Withdrawals will be disabled for 36 hours after any wallet address update</div>
+  <div style={itemStyle}>7. Password Change: Withdrawals will be disabled for 24 hours after a password change.</div>
 </div>
   );
 };

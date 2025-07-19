@@ -15,6 +15,7 @@ const WithdrawReq = () => {
   const [selectedWallet, setSelectedWallet] = useState("");
     const [adate, setAdate] = useState(null);
   const [amount, setAmount] = useState("");
+  const [trxpsd, setTrxpsd] = useState("");
   const [verificationCode, setVerificationCode] = useState("");
   const [availbal, setAvailableBal] = useState();
   const [walletType, setWalletType] = useState("");
@@ -75,7 +76,7 @@ const WithdrawReq = () => {
     }
 
       // Assuming you have a backend endpoint to process the withdrawal request
-      if(amount<30)
+      if(amount<25)
       {
         setSuccess('Minimum withdrawal amount is 25');
         return false;
@@ -92,6 +93,7 @@ const WithdrawReq = () => {
         type: walletType,
         amount: amount,
         verificationCode: verificationCode,
+        trxpsd:trxpsd
       });
       if (response.data.success) {
         setSuccess(response.data.message);
@@ -143,7 +145,7 @@ const WithdrawReq = () => {
           trc20: response.data.trc20,
         });
       }
-       if (response.data.bep20 && response.data.trc20) {
+       if (response.data.bep20) {
         setSelectedWallet(response.data.bep20);
         setWalletType("BEP20");
       }
@@ -268,12 +270,32 @@ const WithdrawReq = () => {
           </div>
         </uni-input>   </uni-view></uni-view></uni-view>
         <uni-view data-v-53c5f33f="" class="input-layer" style={{ marginTop: '15px' }}><uni-view data-v-53c5f33f="" class="input-title">{t('Amount')}</uni-view>
-        <uni-view data-v-30449abe="" data-v-53c5f33f="" class="uni-easyinput" style={{ color: 'rgb(255, 255, 255)' }}><uni-view data-v-30449abe="" class="uni-easyinput__content is-input-border " style={{ borderColor: '#51fbc1', backgroundColor: 'unset' }}>   <uni-input data-v-30449abe="" class="uni-easyinput__content-input" style={{ paddingLeft: '10px' }}>
+        <uni-view data-v-30449abe="" data-v-53c5f33f="" class="uni-easyinput" style={{ color: 'rgb(255, 255, 255)' }}>
+          <uni-view data-v-30449abe="" class="uni-easyinput__content is-input-border " style={{ borderColor: '#51fbc1', backgroundColor: 'unset' }}>   
+          <uni-input data-v-30449abe="" class="uni-easyinput__content-input" style={{ paddingLeft: '10px' }}>
           <div class="uni-input-wrapper">
             <div class="uni-input-placeholder uni-easyinput__placeholder-class" data-v-30449abe="" data-v-53c5f33f=""></div>
             <input value={amount} onChange={(e) => setAmount(e.target.value)} type="number" placeholder="Please Enter Amount" className="uni-input-input" />
           </div>
-        </uni-input>   </uni-view></uni-view>    </uni-view>
+        </uni-input>
+           </uni-view>
+          
+           
+           </uni-view>    
+           </uni-view>
+           <uni-view data-v-53c5f33f="" class="input-layer">
+           <uni-view data-v-53c5f33f="" class="input-title">{t('Transection Password')}</uni-view>
+            <uni-view data-v-30449abe="" data-v-53c5f33f="" class="uni-easyinput" style={{ color: 'rgb(255, 255, 255)' }}>
+           <uni-view data-v-30449abe="" class="uni-easyinput__content is-input-border " style={{ borderColor: '#51fbc1', backgroundColor: 'unset' }}>   
+          <uni-input data-v-30449abe="" class="uni-easyinput__content-input" style={{ paddingLeft: '10px' }}>
+          <div class="uni-input-wrapper">
+            <div class="uni-input-placeholder uni-easyinput__placeholder-class" data-v-30449abe="" data-v-53c5f33f=""></div>
+            <input value={trxpsd} name="trxpad" onChange={(e) => setTrxpsd(e.target.value)} type="password" placeholder="Please Enter Trasection Password" className="uni-input-input" />
+          </div>
+        </uni-input>
+           </uni-view>
+           </uni-view>
+           </uni-view>
         {/* <uni-view data-v-53c5f33f="" class="input-layer" style={{marginTop: '10px'}}><uni-view data-v-53c5f33f="" class="input-title">Payment Password</uni-view>
         <uni-view data-v-30449abe="" data-v-53c5f33f="" class="uni-easyinput" style={{color: 'rgb(255, 255, 255)'}}>
           <uni-view data-v-30449abe="" class="uni-easyinput__content is-input-border " style={{borderColor: 'rgba(255, 255, 255, 0.2)',backgroundColor: 'unset'}}>  

@@ -155,7 +155,7 @@ const { t } = useTranslation();
       { key: 'invitation', label: t('Rapid Rise Bonus'), path: '/MissionCenter' },
       { key: 'longterm', label: t('Community Rewards'), path: '/longterm' },
     ];
-  
+    
     const wrapperStyle = {
       display: 'flex',
       borderBottom: '1px solid #333',

@@ -232,7 +232,7 @@ const Trade = () => {
               <uni-view data-v-945761f4="" class="value red">-0.0183</uni-view>
              </uni-view> */}
                 <uni-view data-v-945761f4="" class="text-line">
-                <uni-view data-v-945761f4="" class="title">Trade Income</uni-view>
+                <uni-view data-v-945761f4="" class="title">Trade Profit</uni-view>
                    <div className="value green">{item.profit ? `$${item.profit}` : "wait.."}</div>
                  </uni-view>
                <uni-view data-v-945761f4="" style={{height: '10px'}}></uni-view>

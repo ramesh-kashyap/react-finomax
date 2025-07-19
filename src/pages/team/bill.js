@@ -109,7 +109,7 @@ const { t } = useTranslation();
                                            </div>
                                         </uni-view>
                                         <uni-view data-v-35b9a113="" data-v-c62a6474="" class="uni-col uni-col-12" style={{paddingLeft: '0px',paddingRight: '0px'}}>
-                                            <uni-view data-v-c62a6474="" class="page-title">{t('Quantify History')}</uni-view>
+                                            <uni-view data-v-c62a6474="" class="page-title">{t('Trade History')}</uni-view>
                                         </uni-view>
                                         <uni-view data-v-35b9a113="" data-v-c62a6474="" class="uni-col uni-col-6" style={{paddingLeft: '0px',paddingright: '0px'}}></uni-view>
                                     </uni-view>
@@ -128,8 +128,8 @@ const { t } = useTranslation();
                                  </div>
                                 
                                  <div>
-                                    <div style={labelStyle2}>{t('Profit')}</div>
-<div style={{ ...valueStyle2, color: 'green', marginBottom: 0 }}>${item.profit}</div>
+                                    <div style={{ ...labelStyle2, marginLeft: "16px" }} >{t('Profit')}</div>
+<div style={{ ...valueStyle2, color: '#31ff77', marginBottom: 0 }}>${item.profit}</div>
                                  </div>
                                  </div>
                                     <div style={gridStyle}>
@@ -140,7 +140,7 @@ const { t } = useTranslation();
                                 
                                  <div>
                                     <div style={{ ...labelStyle2, marginLeft: 23 }}>{t('Exit Price')}</div>
-                                    <div style={valueStyle2}>{item.c_sell}</div>
+                                    <div  style={{ ...valueStyle2, marginLeft: 23 }} >{item.c_sell}</div>
                                  </div>
                                  </div>
                                     <div style={gridStyle}>

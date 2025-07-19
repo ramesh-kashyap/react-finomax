@@ -113,7 +113,7 @@
   "Select Deposit Type": "Select Deposit Type",
   "Amount": "Amount",
   "Minimum Recharge": "Minimum Recharge",
-  "Only Networks Accepted": "Only BEP20 or TRC20 networks are accepted.",
+  "Only Networks Accepted": "Only BEP20 networks are accepted.",
   "Recharge Warning": "Do not send any other coin or network — funds sent incorrectly will be lost and cannot be recovered.",
   "Withdrawal": "Withdrawal",
   "Available Balance": "Available Balance",

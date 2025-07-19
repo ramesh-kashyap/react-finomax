@@ -29,7 +29,7 @@ const Transaction = () => {
         try {
             const typeParam = selectedType !== 'All' ? selectedType : '';
             const monthParam = selectedMonth !== 'Time' ? selectedMonth : '';
-            const response = await Api.get(`/getUserHistory?page=${pageNumber}&limit=${limit}&type=${typeParam}&month=${monthParam}`);
+            const response = await Api.get(`/getUserHistory?page=${pageNumber}&limit=${limit}&type=${typeParam}&month=${monthParam}`);            
             if (response.data && response.data.success) {
                 console.log(response.data);
                 setTransactions(response.data.transactions);
@@ -67,7 +67,7 @@ const Transaction = () => {
         navigate(-1); // 👈 Go back to the previous page in history
     };
 
-    const revenueOptions = ['All','Order Revenue','Mentor Fee','Rapid Rise Bonus','Over Rise Income','Community Building Reward','Monthly Fixed Income',];
+    const revenueOptions = ['All','Order Revenue','Mentor Fee','Rapid Rise Bonus','Over Ride Income','Community Building Reward','Monthly Fixed Income',];
     const monthOptions = ['Time','2025-12','2025-11','2025-10','2025-09','2025-08','2025-07', '2025-06'];
 
     const containerStyle = {
@@ -247,7 +247,10 @@ const Transaction = () => {
                                     <TransactionCard
                                             remarks={item.remarks || item.source || '—'}
                                             amount={getAmount(item.type, item)}
-                                            date={formatUTCDate(item.created_at)} color={getAmountColor(item.type)} /></>
+                                            date={formatUTCDate(item.created_at)} color={getAmountColor(item.type)}
+                                            rname={(item.remarks === "Over Ride Income" || item.remarks === "Mentor Fee") && item.rname ? `${item.rname} Lvl-${item.level}` : ""}
+                                             status={item.status?item.status:'Completed'}
+                                            /></>
 
                                 ))
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TransactionCard = ({ remarks, amount, date,color,status }) => {
+const TransactionCard = ({ remarks, amount, date,color,status,rname }) => {
   const containerStyle = {
     backgroundColor: '#121212',
     borderRadius: '12px',
@@ -28,9 +28,9 @@ const TransactionCard = ({ remarks, amount, date,color,status }) => {
   };
 
   const dotStyle = {
-    width: '8px',
+    // width: '8px',
     height: '8px',
-    backgroundColor: '#51fbc1',
+    color: '#aaa',
     borderRadius: '50%',
     display: 'inline-block',
     marginRight: '6px',
@@ -45,7 +45,7 @@ const TransactionCard = ({ remarks, amount, date,color,status }) => {
 
       <div style={bottomRowStyle}>
         <div>{date}</div>
-        <div><span style={dotStyle}></span>{status}</div>
+        <div><span style={dotStyle}>{rname ? rname: `● ${status}`  }</span></div>
       </div>
     </div>
   );

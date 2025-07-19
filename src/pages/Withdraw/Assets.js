@@ -24,7 +24,6 @@ const Assets = () => {
          const response = await Api.get("/depositInfo");
          if (response.data.success) {
       const userPackage = response.data.data.package;
-      console.log("User package:", userPackage);
 
       setDeposit(userPackage); // uncomment this to store it in state
     } else {
@@ -40,13 +39,10 @@ const Assets = () => {
             const response = await Api.get("/getUserHistory");
 
             if (response.data && response.data.success) {
-                console.log(response.data);
                 setTransactions(response.data.transactions);
             } else {
                 setTransactions([]);
             }
-
-            console.log("Fetched:", response.data);
         } catch (err) {
             setError(err.response?.data?.error || "Error fetching history");
         }

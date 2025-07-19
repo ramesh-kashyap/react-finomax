@@ -166,7 +166,7 @@ const CheckUsers = () => {
 
  const tabs = [
       { key: 'invitation', label: t('Rapid Rise Bonus'), path: '/MissionCenter' },
-      { key: 'longterm', label: t('Community Building Rewards'), path: '/longterm' },
+      { key: 'longterm', label: t('Community Rewards'), path: '/longterm' },
     ];
 
   const wrapperStyle = {

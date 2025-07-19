@@ -436,10 +436,12 @@ const Server = () => {
      };
    
      const vipRateMap = {
-      1: '1.3% - 1.5%',
-      2: '1.6% - 1.8%',
-      3: '2.0% - 2.4%',
-      4: '2.6% - 3%',
+      1: '0.9% - 1.1%',
+      2: '1.9% - 2.10%',
+      3: '2.4% - 2.6%',
+      4: '2.9% - 3.1%',
+      5: '3.40% - 3.6%',
+      6: '3.9% - 4.10%',
       };
 const vipRateRange = vipRateMap[vip] || '0';
   if (!pair) return null;
@@ -474,7 +476,7 @@ const vipRateRange = vipRateMap[vip] || '0';
                                  </Link>
                               </uni-view>
                               <uni-view data-v-35b9a113="" data-v-3dcfa33c="" class="uni-col uni-col-12" style={{ paddingLeft: '0px', paddingRight: '0px' }}>
-                                 <uni-view data-v-3dcfa33c="" class="page-title">{t('Trade')}</uni-view>
+                                 <uni-view data-v-3dcfa33c="" class="page-title">{t('Execute Trade')}</uni-view>
                               </uni-view>
                               <uni-view data-v-35b9a113="" data-v-3dcfa33c="" class="uni-col uni-col-6" style={{ paddingLeft: '0px', paddingRight: '0px' }}>
                                  <Link to="/bill">
@@ -493,11 +495,11 @@ const vipRateRange = vipRateMap[vip] || '0';
         </div>
         <div>
           <span style={labelStyle}>{t('Income Balance')}</span><br />
-          <span style={valueStyle}>$ {availbal ? availbal : "0.00"}.00</span>
+          <span style={valueStyle}>$ {availbal ? availbal : "0.00"}</span>
         </div>
         <div>
           <span style={labelStyle}>{t('Total Income')}</span><br />
-          <span style={valueStyle}>${incomes.totalIncome ? incomes.totalIncome : 0}.00</span>
+          <span style={valueStyle}>${incomes.totalIncome ? incomes.totalIncome : 0}</span>
         </div>
       </div>
 
@@ -506,15 +508,15 @@ const vipRateRange = vipRateMap[vip] || '0';
       <div style={rowStyle}>
         <div>
           <span style={labelStyle}>{t("Total Deposit")}</span><br />
-          <span style={{ ...valueStyle, color: '#00ff99' }}>${deposit ? deposit : 0}.00</span>
+          <span style={{ ...valueStyle, color: '#00ff99' }}>${deposit ? deposit : 0}</span>
         </div>
         <div>
-          <span style={labelStyle}>{t('Trade Income')}</span><br />
-          <span style={valueStyle}>${incomes.tradingIncome ? incomes.tradingIncome : 0}.00</span>
+          <span style={labelStyle}>{t('Trade Profit')}</span><br />
+          <span style={valueStyle}>${incomes.tradingIncome ? incomes.tradingIncome : 0}</span>
         </div>
         <div>
           <span style={labelStyle}>{t('Team Benefits')}</span><br />
-          <span style={valueStyle}>${incomes.teamIncome ? incomes.teamIncome : 0}.00</span>
+          <span style={valueStyle}>${incomes.teamIncome ? incomes.teamIncome : 0}</span>
         </div>
       </div>
     </div>
@@ -551,11 +553,11 @@ const vipRateRange = vipRateMap[vip] || '0';
 
                               <div style={infoRowStyle}>
                               <div>
-                                 <div>{t('Transaction Amount')}</div>
-                                 <div style={infoValueStyle}>{deposit ? deposit : 0}.00 USDT</div>
+                                 <div>{t('Trade Wallet Balance')}</div>
+                                 <div style={infoValueStyle}>{deposit ? deposit : 0} USDT</div>
                               </div>
                               <div style={{ textAlign: 'right' }}>
-                                 <div>{t('Rate Of Return')}</div>
+                                 <div>{t('Average Trade Profit')}</div>
                                  <div style={infoValueStyle}>{vipRateRange}</div>
                               </div>
                               </div>

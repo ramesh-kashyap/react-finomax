@@ -164,7 +164,7 @@ const [countdown, setCountdown] = useState('');
           if (!running) handleBuyClick();
         }}
       >
-          {tradeCount} / {Quantification}  {t('Start Quantify')}
+          {tradeCount} / {Quantification}  {t('Start Trade')}
       </uni-view>
 
       ) : (
@@ -180,7 +180,7 @@ const [countdown, setCountdown] = useState('');
       padding: '10px'
     }}
   >
-    {t('Next Quantify In')} {countdown}
+    {t('Next Trade In')} {countdown}
   </uni-view>
 
         )}
@@ -275,7 +275,7 @@ const [countdown, setCountdown] = useState('');
           border: 'none',
           padding: '0.75rem 2rem',
           borderRadius: '0.5rem',
-          color: '#fff',
+          color: '#000',
           fontWeight: 'bold',
           fontSize: '1rem',
           cursor: 'pointer'

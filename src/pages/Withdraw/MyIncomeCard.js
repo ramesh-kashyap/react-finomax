@@ -97,22 +97,22 @@ const MyIncomeCard = () => {
   <div style={sectionStyle}>
     <div>
       <div style={labelStyle}>{t('Total Income')}</div>
-      <div style={valueStyle}>${incomes.totalIncome ? incomes.totalIncome : 0}.00</div>
+      <div style={valueStyle}>${incomes.totalIncome ? incomes.totalIncome : 0}</div>
     </div>
     <div>
       <div style={labelStyle}>{t("Total Deposit")}</div>
-      <div style={valueStyle}>${deposit ? deposit : 0}.00</div>
+      <div style={valueStyle}>${deposit ? deposit : 0}</div>
     </div>
   </div>
 
   <div style={sectionStyle}>
     <div>
-      <div style={labelStyle}>{t('Toatl Capping')}</div>
-      <div style={valueStyle}>${incomes.cappingIncome ? incomes.cappingIncome : 0}.00</div>
+      <div style={labelStyle}>{t('Total Capping')}</div>
+      <div style={valueStyle}>${incomes.cappingIncome ? incomes.cappingIncome : 0}</div>
     </div>
     <div>
-      <div style={labelStyle}>{t("Total Withdraw")}</div>
-      <div style={valueStyle}>${withdraw ? withdraw : 0}.00</div>
+      <div style={labelStyle}>{t("Total Withdrawal")}</div>
+      <div style={valueStyle}>${withdraw ? withdraw : 0}</div>
     </div>
   </div>
 

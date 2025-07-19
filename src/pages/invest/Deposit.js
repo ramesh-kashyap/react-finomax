@@ -27,6 +27,8 @@ const Deposit = () => {
   const [qrCodeData, setQrCodeData] = useState('');
   const [showScanner, setShowScanner] = useState(false);
   // const [method, setMethod] = useState("");
+   const [success, setSuccess] = useState('');
+  
   useEffect(() => {
     fetchwallet(selected);
     fetchvip();
@@ -61,6 +63,17 @@ const Deposit = () => {
                 5: 25000,
                 6: 100000,
             };
+
+  // VIP level mapping
+  const vipTypeMap = {
+    0: "Trainee",
+    1: "Trainee",
+    2: "Skilled",
+    3: "Advance",
+    4: "Expert",
+    5: "Professional",
+    6: "Ultimate"
+  };
 
 const handleAmountChange = (e) => {
   const value = e.target.value;
@@ -104,11 +117,9 @@ const handleAmountChange = (e) => {
   const maxAllowed = vipLimit - previousDeposit;
 
   if (total > vipLimit) {
-    toast.error(`Deposit limit exceeded for  ${vipLimit}. Max allowed: ${maxAllowed} USDT`);
+    setSuccess(`Deposit limit exceeded for  ${vipTypeMap[vip]}. Max allowed: ${maxAllowed} USDT`);
     return;
-  } else {
-    setError("");
-  }  
+  } 
     try {
       setLoading(true);
       const response = await Api.post(`/confirmDeposit`, { method: "USDT BEP20", amount });
@@ -119,7 +130,7 @@ const handleAmountChange = (e) => {
         setShowScanner(true)
       }
     } catch (error) {
-      console.error("Something went wrong submitting the deposit:", error);
+      setSuccess("Something went wrong submitting the deposit:", error);
     } finally {
       setLoading(false);
     }
@@ -127,10 +138,10 @@ const handleAmountChange = (e) => {
   const copyToClipboard = () => {
     navigator.clipboard.writeText(walletAddress)
       .then(() => {
-        toast.success('Wallet address copied!');
+        setSuccess('Wallet address copied!');
       })
       .catch(() => {
-        toast.error('Failed to copy wallet address');
+        setSuccess('Failed to copy wallet address');
       });
   };
   const backClick = () => {
@@ -141,6 +152,7 @@ const handleAmountChange = (e) => {
       <uni-app class="uni-app--maxwidth">
         <uni-page data-page="pages/user/recharge">
           <uni-page-wrapper>
+                  {success && <Toast message={success} onClose={() => setSuccess('')} />}
             <uni-page-body>
               <Toaster position="top-right" reverseOrder={false} />
               <uni-view data-v-bec7c7ce="" class="page">

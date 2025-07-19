@@ -97,7 +97,7 @@ const PairCard = () => {
 
       <div style={infoRowStyle}>
         <div>
-          <div>Transaction Amount</div>
+          <div>Trade Wallet Balance</div>
           <div style={infoValueStyle}>0 USDT</div>
         </div>
         <div style={{ textAlign: 'right' }}>

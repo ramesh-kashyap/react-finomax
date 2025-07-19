@@ -193,7 +193,15 @@ const NodeDetails = () => {
                     </uni-view>
                   </uni-view>
                 </Link>
-
+                <Link to="/payment-password" style={{ textDecorationLine: 'none' }}>
+                  <uni-view data-v-3dcfa33c="" class="invite-box">
+                    <img data-v-3dcfa33c="" src="/static/img/loginpass.png" alt="" />
+                    <uni-view data-v-3dcfa33c="" class="invite">
+                      <uni-view data-v-3dcfa33c="" class="title">{t('Payment Password')}</uni-view>
+                      <uni-view data-v-3dcfa33c="" class="text">{t('Manage or Update Your Transection Passowrd')}</uni-view>
+                    </uni-view>
+                  </uni-view>
+                </Link>
 
 
 

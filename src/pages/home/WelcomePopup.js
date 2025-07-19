@@ -75,14 +75,12 @@ const WelcomePopup = ({ onClose }) => {
           <div style={titleStyle}>Welcome to Finomax</div>
         </div>
         <div style={contentStyle}>
-          New members can get 3USDT after completing registration and email verification. Headquartered in New York City, USA,
-          Finomax was established in 2019 and has emerged as a platform leading the transformation of the e–commerce industry.
+         Finomax AI ensure that every member associated with this us has a golden opportunity to earn lots of Money, respect and fullfill their dreams. Headquartered in Pinang Pulao, Malaysia. Finomax AI was established in April 2012
           <br /><br />
-          Finomax’s core advantage lies in enhancing product visibility in the market through order fulfillment,
-          significantly boosting sales for merchants while providing users with a genuine source of income.
+        At Finomax, our core advantage lies in leveraging intelligent arbitrage strategies to maximize profits while enhancing market visibility for partner products. Our automated system empowers users to earn genuine income effortlessly, while helping merchants achieve higher sales through seamless order fulfillment.
+
           <br /><br />
-          This win–win model sets Finomax apart in the e–commerce sector, making it the preferred choice for both merchants and users alike.
-          For more details, please contact Finomax online customer service.
+          This mutually rewarding model makes Finomax AI Arbitrage the preferred platform for both users and merchants in the digital commerce space.
         </div>
         <button style={buttonStyle} onClick={onClose}>Got it</button>
       </div>

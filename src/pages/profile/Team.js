@@ -203,8 +203,8 @@ const getArc = (start, percent) => {
 };
 
 const angles = [
-  { value: m1, color: 'blue', label: `LVL1 (${income?.data?.active_gen_team1total}/${income?.data?.gen_team1total})` },
-  { value: m2, color: 'green', label: `LVL2 (${income?.data?.active_gen_team2total}/${income?.data?.gen_team2total})` },
+  { value: m1, color: '#21ffb4', label: `LVL1 (${income?.data?.active_gen_team1total}/${income?.data?.gen_team1total})` },
+  { value: m2, color: 'blue', label: `LVL2 (${income?.data?.active_gen_team2total}/${income?.data?.gen_team2total})` },
   { value: m3, color: 'orange', label: `LVL3 (${income?.data?.active_gen_team3total}/${income?.data?.gen_team3total})` },
   { value: m4, color: 'purple', label: `LVL4 (${income?.data?.active_gen_team4total}/${income?.data?.gen_team4total})` },
   { value: m5, color: 'red', label: `LVL5 (${income?.data?.active_gen_team5total}/${income?.data?.gen_team5total})` },
@@ -457,11 +457,11 @@ const tabData = {
                 <div style={rowStyle}>
                   <div style={colStyle}>
                     <div style={labelStyle}>{t('Total Income')}</div>
-                    <div style={valueStyle}>${incomes.totalIncome ? incomes.totalIncome : 0}.00</div>
+                    <div style={valueStyle}>${incomes.totalIncome ? incomes.totalIncome : 0}</div>
                   </div>
                   <div style={colStyle}>
                     <div style={labelStyle}>{t("Total Deposit")}</div>
-                    <div style={valueStyle}>${deposit ? deposit : 0}.00</div>
+                    <div style={valueStyle}>${deposit ? deposit : 0}</div>
                   </div>
                 </div>
 
@@ -470,11 +470,11 @@ const tabData = {
                 <div style={rowStyle}>
                   <div style={colStyle}>
                     <div style={labelStyle}>{t('Team Income')}</div>
-                    <div style={valueStyle}>${incomes.teamIncome ? incomes.teamIncome : 0}.00</div>
+                    <div style={valueStyle}>${incomes.teamIncome ? incomes.teamIncome : 0}</div>
                   </div>
                   <div style={colStyle}>
                     <div style={labelStyle}>{t("Today's Team Income")}</div>
-                    <div style={valueStyle}>${incomes.todayTeamIncome ? incomes.todayTeamIncome : 0}.00</div>
+                    <div style={valueStyle}>${incomes.todayTeamIncome ? incomes.todayTeamIncome : 0}</div>
                   </div>
                 </div>
 
@@ -504,7 +504,7 @@ const tabData = {
                   </div>
                 </div>
                 <div style={columnStyle}>
-                  <div>💰 {t("Today's Earnings")}</div>
+                  <div>💰 {t("Total Earnings")}</div>
                   <div style={valueStyleTeam}>${incomes.teamIncome ? incomes.teamIncome : 0}</div>
                   <div style={smallTextStyle}>
                     {t("Today's New")} <span style={{ color: '#51fbc1' }}>+{incomes.todayTeamIncome ? incomes.todayTeamIncome : 0}</span>
@@ -552,10 +552,10 @@ const tabData = {
 
                <div style={legendStyle}>
   <div>
-    <span style={dotStyle('blue')}></span> Layer 1 ({income?.data?.active_gen_team1total}/{income?.data?.gen_team1total})
+    <span style={dotStyle('#21ffb4')}></span> Layer 1 ({income?.data?.active_gen_team1total}/{income?.data?.gen_team1total})
   </div>
   <div>
-    <span style={dotStyle('green')}></span> Layer 2 ({income?.data?.active_gen_team2total}/{income?.data?.gen_team2total})
+    <span style={dotStyle('blue')}></span> Layer 2 ({income?.data?.active_gen_team2total}/{income?.data?.gen_team2total})
   </div>
   <div>
     <span style={dotStyle('orange')}></span> Layer 3 ({income?.data?.active_gen_team3total}/{income?.data?.gen_team3total})

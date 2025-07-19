@@ -348,12 +348,12 @@ const Server = () => {
                                  <uni-view data-v-0f43bbff="" class="layout">
                                     <uni-view data-v-0f43bbff="" class="level">
                                        {/* <img data-v-0f43bbff="" src="/static/img/TeamC.png" alt="" style={{filter: 'brightness(0.72) invert(0)'}}/> */}
-                                       {t('Second + Third Generation Valid Members')}</uni-view>
+                                       {t('Second + Third Layer Valid Members')}</uni-view>
                                     <uni-view data-v-0f43bbff="" class="rate">{(servers?.sponsor?.teamBCount ?? 0) + (servers?.sponsor?.teamCCount ?? 0)}/{slides[currentSlideIndex]?.TeamBC}</uni-view>
                                  </uni-view>
                                  {/* <uni-view data-v-0f43bbff="" class="layout">
                     <uni-view data-v-0f43bbff="" class="level">
-                      Third Generation Valid Members</uni-view>
+                      Third Layer Valid Members</uni-view>
                     <uni-view data-v-0f43bbff="" class="rate">{servers?.sponsor?.teamCCount || 0}</uni-view>
                   </uni-view> */}
 

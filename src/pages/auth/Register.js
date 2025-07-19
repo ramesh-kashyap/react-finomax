@@ -33,6 +33,7 @@ const Register = () => {
     password: "",
     password_confirmation: "",
     countryCode: "",
+    phone:"",
     country: "",
     verificationCode:""
   });
@@ -82,10 +83,8 @@ const Register = () => {
             setCooldown(60);
       const response = await Api.post('/sendRegisterOtp', {
         email: formData.email.trim() // Make sure 'email' state variable exists
-      });
-     
-      // console.log(response);
-      
+      });     
+      // console.log(response); 
   
       if (response?.data?.success) {
       } else {
@@ -116,8 +115,11 @@ const Register = () => {
         sponsor: formData.sponsor,
         name: formData.name,
         email: formData.email,
+        phone: formData.phone,
         password: formData.password,
         countryCode: formData.countryCode,
+        country_iso:formData.country,
+        country: formData.countryName,
         verificationCode: formData.verificationCode,
       });
       if (res.status === 201) {
@@ -315,7 +317,7 @@ const Register = () => {
                         </uni-text>
                       </uni-view>
                     </uni-view>
-                  </uni-view>
+                  </uni-view>                 
 
                   <uni-view data-v-b918f992="" class="input-layer">
                     <uni-view data-v-b918f992="" class="input-title">Verification Code</uni-view>
@@ -341,6 +343,74 @@ const Register = () => {
                     </uni-view>
                   </uni-view>
 
+                   <uni-view data-v-2b56ecaf="" class="input-layer">
+                    <uni-view data-v-2b56ecaf="" class="input-title">
+                      Mobile
+                    </uni-view>
+                    <uni-view
+                      data-v-30449abe=""
+                      data-v-2b56ecaf=""
+                      class="uni-easyinput"
+                    >
+                      <uni-view
+                        data-v-30449abe=""
+                        class="uni-easyinput__content is-input-border "
+                        
+                      >
+                        <uni-view data-v-30449abe="" class="content-clear-icon">
+                          <div class="relative flex items-center bg-[rgb(78_78_78_/_40%)]  rounded-l-xl px-2 h-[53px] text-white text-base min-w-[85px]">
+                            <PhoneInput
+                              defaultCountry="IN"
+                              value={formData.countryCode}
+                              onChange={(value, meta) => {
+                                setFormData({
+                                  ...formData,
+                                  countryCode: meta.country.dialCode,
+                                  country: meta.country.iso2.toUpperCase(),
+                                  countryName: meta.country.name
+                                });
+                              }}
+                              inputClassName="!opacity-0 !w-0"
+                              containerClassName="!absolute !left-0 !top-0 w-full h-full"
+                              buttonClassName="!h-full !bg-transparent !border-none z-10 !pl-1 !pr-1"
+                            />
+                            {/* <span className="ml-[-15px] z-0">+{formData.countryCode}</span> */}
+                          </div>
+                        </uni-view>{" "}
+                        <uni-input
+                          data-v-30449abe=""
+                          class="uni-easyinput__content-input"
+                          style={{ paddingLeft: "10px" }}
+                        >
+                          <div class="uni-input-wrapper">
+                            <input
+                              maxlength="140"
+
+                              value={formData.phone}
+                              onChange={handleChange}
+                              placeholder="Enter your Mobile Number"
+
+                              type="number"
+                              name="phone"
+                              required
+                              class="uni-input-input"
+                            />
+                          </div>
+                        </uni-input>
+                        <uni-text
+                          data-v-45a6b600=""
+                          data-v-30449abe=""
+                          class="uni-icons content-clear-icon "
+                          style={{
+                            color: "rgb(192, 196, 204)",
+                            fontSize: "24px",
+                          }}
+                        >
+                          <span></span>
+                        </uni-text>
+                      </uni-view>
+                    </uni-view>
+                  </uni-view>
 
                   <uni-view data-v-2b56ecaf="" class="input-layer">
                     <uni-view data-v-2b56ecaf="" class="input-title">

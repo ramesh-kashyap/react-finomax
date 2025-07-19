@@ -80,7 +80,7 @@ const { t } = useTranslation();
 
 
   const levelFromUrl = new URLSearchParams(window.location.search).get('selected_level') || '1';
-    const [activeTab, setActiveTab] = useState('Lvl'+levelFromUrl);
+    const [activeTab, setActiveTab] = useState('Layer'+levelFromUrl);
   
     const tabs = ['Layer1', 'Layer2', 'Layer3','Layer4','Layer5'];
 const tabHeaderStyle = {
